@@ -4,59 +4,171 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lazarus Labs</title>
+
   <style>
+    /* ----- Global Styles ----- */
     body {
-      background: #0d0d0d;
-      color: #ffffff;
-      font-family: Arial, sans-serif;
+      background: #000;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
       margin: 0;
       padding: 0;
-      text-align: center;
     }
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    /* ----- Navigation Bar ----- */
+    nav {
+      width: 100%;
+      background: #0d0d0d;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 14px 32px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-left img {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+    }
+
+    .nav-left .brand {
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      font-size: 16px;
+      opacity: 0.8;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    /* ----- Hero Section ----- */
     header {
-      padding: 80px 20px;
+      padding: 120px 20px 80px 20px;
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
     }
+
     h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
+      font-size: 48px;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
     }
+
     p {
-      font-size: 18px;
+      font-size: 20px;
       color: #cccccc;
       max-width: 600px;
       margin: 0 auto 40px auto;
+      line-height: 1.5;
     }
-    a.button {
+
+    .button {
       display: inline-block;
-      padding: 12px 20px;
-      background: #2e73ff;
-      color: #fff;
+      padding: 14px 28px;
+      background: white;
+      color: black;
       border-radius: 6px;
-      text-decoration: none;
       font-weight: bold;
+      transition: background 0.2s ease, color 0.2s ease;
     }
+
+    .button:hover {
+      background: #e5e5e5;
+    }
+
+    /* ----- Footer ----- */
     footer {
-      margin-top: 50px;
-      padding: 20px;
+      margin-top: 80px;
+      padding: 30px 20px;
+      text-align: center;
       font-size: 14px;
-      color: #777;
+      color: #888;
     }
+
     footer a {
-      color: #2e73ff;
-      text-decoration: none;
+      color: #fff;
+      opacity: 0.7;
+    }
+
+    footer a:hover {
+      opacity: 1;
+    }
+
+    /* ----- Responsive Adjustments ----- */
+    @media (max-width: 700px) {
+      .nav-links {
+        display: none; /* hide links on small screens until we add mobile menu */
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      p {
+        font-size: 18px;
+      }
     }
   </style>
 </head>
+
 <body>
 
+<!-- 🌐 Modern Navigation Bar -->
+<nav>
+  <div class="nav-left">
+    <img src="lazarus-labs-icon-text.png" alt="Lazarus Labs Logo" />
+    <span class="brand">Lazarus Labs</span>
+  </div>
+
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/projects.html">Projects</a>
+    <a href="/about.html">About</a>
+    <a href="/support.html">Support</a>
+  </div>
+</nav>
+
+<!-- ⭐ Hero Section -->
 <header>
-  <h1>Lazarus Labs</h1>
-  <p>Creators of modern mobile software experiences.  
-     Apps built with performance, privacy, and user-first design.</p>
+  <h1>Building the Future of Mobile Software</h1>
+  <p>
+    Lazarus Labs creates modern, high-performance mobile applications  
+    with a focus on privacy, precision, and user-first design.
+  </p>
 
   <a href="mailto:support@lazaruslabs.com" class="button">Contact Support</a>
 </header>
 
+<!-- 🔻 Footer -->
 <footer>
   <a href="/privacy.html">Privacy Policy</a> •
   <a href="/terms.html">Terms of Service</a> •
