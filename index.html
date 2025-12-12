@@ -16,15 +16,14 @@
     }
 
     a {
-      color: white;
       text-decoration: none;
     }
 
     /* ----- Navigation Bar ----- */
     nav {
       width: 100%;
-      background: #0d0d0d;
-      border-bottom: 1px solid #1a1a1a;
+      background: #ffffff;              /* WHITE NAVBAR */
+      border-bottom: 1px solid #e5e5e5;
       padding: 14px 32px;
 
       display: flex;
@@ -34,15 +33,19 @@
       position: sticky;
       top: 0;
       z-index: 10;
+
+      overflow: hidden;
+      box-sizing: border-box;
     }
 
     .nav-left {
       display: flex;
       align-items: center;
       gap: 12px;
+      flex-shrink: 0; /* prevent logo from shrinking */
     }
 
-    /* FIXED: Proper responsive logo scaling */
+    /* Logo scaling */
     .nav-left img {
       height: 40px;
       width: auto;
@@ -54,15 +57,20 @@
       font-size: 22px;
       font-weight: bold;
       letter-spacing: 0.5px;
+      color: #000000;                   /* BLACK TEXT */
     }
 
     .nav-links {
       display: flex;
       gap: 24px;
+      flex-wrap: wrap;                  /* prevents overflow */
+      justify-content: flex-end;
+      max-width: 100%;
     }
 
     .nav-links a {
       font-size: 16px;
+      color: #000000;                   /* BLACK NAV LINKS */
       opacity: 0.8;
       transition: opacity 0.2s ease;
     }
@@ -126,17 +134,15 @@
     }
 
     /* ----- Responsive Adjustments ----- */
+    @media (max-width: 900px) {
+      .nav-links {
+        gap: 16px;
+      }
+    }
+
     @media (max-width: 700px) {
       .nav-links {
-        display: none; /* hide links on small screens until we add mobile menu */
-      }
-
-      h1 {
-        font-size: 36px;
-      }
-
-      p {
-        font-size: 18px;
+        display: none; /* Hide links until mobile menu added */
       }
     }
   </style>
