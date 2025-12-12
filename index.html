@@ -42,10 +42,12 @@
       gap: 12px;
     }
 
+    /* FIXED: Proper responsive logo scaling */
     .nav-left img {
-      width: 40px;
       height: 40px;
-      border-radius: 8px;
+      width: auto;
+      object-fit: contain;
+      display: block;
     }
 
     .nav-left .brand {
@@ -145,7 +147,7 @@
 <!-- 🌐 Modern Navigation Bar -->
 <nav>
   <div class="nav-left">
-    <img src="lazarus-labs-icon-text.png" alt="Lazarus Labs Logo" />
+    <img src="assets/lazarus-labs-icon-text.png" alt="Lazarus Labs Logo" />
     <span class="brand">Lazarus Labs</span>
   </div>
 
