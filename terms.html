@@ -3,31 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terms of Service - Lazarus Labs</title>
+  <title>Terms of Service — Lazarus Labs</title>
+  <link rel="icon" href="assets/lazarus-labs-icon.png" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <style>
+    .legal { max-width: 820px; margin: 0 auto; }
+    .legal h1 { font-size: clamp(34px, 6vw, 54px); margin-bottom: 12px; }
+    .legal h2 { font-size: 22px; margin: 40px 0 10px; }
+    .legal p, .legal li { color: var(--muted); font-size: 16px; }
+    .legal a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+    .legal strong { color: #fff; }
+  </style>
 </head>
-<body style="font-family: Arial; padding: 40px; max-width: 900px; margin: auto;">
-
-<h1>Terms of Service</h1>
-<p>Last updated: January 2025</p>
-
-<p>
-By using applications or services provided by Lazarus Labs, you agree to these Terms of Service.
-</p>
-
-<h2>Use of Our Apps</h2>
-<p>
-You agree not to misuse, reverse engineer, or modify our apps. Apps may require third-party integrations and may update automatically.
-</p>
-
-<h2>Liability</h2>
-<p>
-We provide apps “as-is” without warranties. Lazarus Labs is not responsible for damages arising from usage.
-</p>
-
-<h2>Contact</h2>
-<p>
-For questions: <a href="mailto:support@lazaruslabs.com">support@lazaruslabs.com</a>
-</p>
-
+<body>
+  <canvas id="starfield"></canvas>
+  <nav>
+    <a class="nav-brand" href="/index.html">
+      <img src="assets/lazarus-labs-icon.png" alt="Lazarus Labs" />
+      <span class="brand">Lazarus Labs</span>
+    </a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="nav-links">
+      <a href="/index.html">Home</a>
+      <a href="/projects.html">Work</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/contact.html" class="nav-cta">Start a project</a>
+    </div>
+  </nav>
+  <main>
+    <section>
+      <div class="container legal reveal">
+        <span class="eyebrow">Legal</span>
+        <h1>Terms of Service</h1>
+        <p>Last updated: January 2025</p>
+        <p>By using applications or services provided by Lazarus Labs, you agree to these Terms of Service.</p>
+        <h2>Use of Our Apps</h2>
+        <p>You agree not to misuse, reverse engineer, or modify our apps. Apps may require third-party integrations and may update automatically.</p>
+        <h2>Liability</h2>
+        <p>We provide apps “as-is” without warranties. Lazarus Labs is not responsible for damages arising from usage.</p>
+        <h2>Contact</h2>
+        <p>For questions: <a href="mailto:info@thelazaruslabs.com">info@thelazaruslabs.com</a></p>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="footer-bottom" style="border-top:0;">
+        <span>© 2026 Lazarus Labs. All rights reserved.</span>
+        <a href="mailto:info@thelazaruslabs.com">info@thelazaruslabs.com</a>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/main.js"></script>
 </body>
 </html>

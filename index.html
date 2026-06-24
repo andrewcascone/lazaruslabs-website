@@ -3,185 +3,209 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lazarus Labs</title>
-
+  <title>Lazarus Labs — Premium App & Website Development</title>
+  <meta name="description" content="Lazarus Labs designs and builds premium iOS, Android, and web experiences for ambitious brands. Engineering that brings ideas back to life." />
+  <link rel="icon" href="assets/lazarus-labs-icon.png" />
+  <link rel="stylesheet" href="assets/styles.css" />
   <style>
-    /* ----- Global Styles ----- */
-    body {
-      background: #000;
-      color: #fff;
-      font-family: Arial, Helvetica, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+    /* Page-specific: hero orbit animation */
+    .orbit-ring { transform-origin: center; animation: spin 60s linear infinite; }
+    .orbit-ring.r2 { animation-duration: 90s; animation-direction: reverse; }
+    .orbit-ring.r3 { animation-duration: 120s; }
+    .orbit-core { animation: pulse 6s ease-in-out infinite; transform-origin: center; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes pulse { 0%,100% { opacity: 0.85; } 50% { opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) { .orbit-ring, .orbit-core { animation: none; } }
 
-    a {
-      text-decoration: none;
-    }
+    .logos-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 14px 30px; opacity: 0.7; }
+    .logos-row span { font-family: var(--display); font-size: 15px; color: var(--muted); letter-spacing: 0.04em; }
+    .logos-row .sep { width: 4px; height: 4px; border-radius: 50%; background: var(--muted-2); }
 
-    /* ----- Navigation Bar ----- */
-    nav {
-      width: 100%;
-      background: #ffffff;              /* WHITE NAVBAR */
-      border-bottom: 1px solid #e5e5e5;
-      padding: 14px 32px;
+    .process-step { display: flex; gap: 22px; padding: 26px 0; border-top: 1px solid var(--line); }
+    .process-step:last-child { border-bottom: 1px solid var(--line); }
+    .process-step .step-no { font-family: var(--display); font-size: 14px; color: var(--muted-2); min-width: 40px; padding-top: 4px; }
+    .process-step h3 { font-size: 22px; margin-bottom: 6px; }
+    .process-step p { margin: 0; font-size: 15px; max-width: 560px; }
 
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      position: sticky;
-      top: 0;
-      z-index: 10;
-
-      overflow: hidden;
-      box-sizing: border-box;
-    }
-
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-shrink: 0; /* prevent logo from shrinking */
-    }
-
-    /* Logo scaling */
-    .nav-left img {
-      height: 40px;
-      width: auto;
-      object-fit: contain;
-      display: block;
-    }
-
-    .nav-left .brand {
-      font-size: 22px;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-      color: #000000;                   /* BLACK TEXT */
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;                  /* prevents overflow */
-      justify-content: flex-end;
-      max-width: 100%;
-    }
-
-    .nav-links a {
-      font-size: 16px;
-      color: #000000;                   /* BLACK NAV LINKS */
-      opacity: 0.8;
-      transition: opacity 0.2s ease;
-    }
-
-    .nav-links a:hover {
-      opacity: 1;
-    }
-
-    /* ----- Hero Section ----- */
-    header {
-      padding: 120px 20px 80px 20px;
+    .cta-band {
       text-align: center;
-      max-width: 900px;
-      margin: auto;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 70px 30px;
+      background:
+        radial-gradient(600px 300px at 50% 0%, rgba(255,255,255,0.07), transparent 70%),
+        linear-gradient(180deg, var(--panel-2), var(--panel));
     }
-
-    h1 {
-      font-size: 48px;
-      margin-bottom: 16px;
-      letter-spacing: -1px;
-    }
-
-    p {
-      font-size: 20px;
-      color: #cccccc;
-      max-width: 600px;
-      margin: 0 auto 40px auto;
-      line-height: 1.5;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 14px 28px;
-      background: white;
-      color: black;
-      border-radius: 6px;
-      font-weight: bold;
-      transition: background 0.2s ease, color 0.2s ease;
-    }
-
-    .button:hover {
-      background: #e5e5e5;
-    }
-
-    /* ----- Footer ----- */
-    footer {
-      margin-top: 80px;
-      padding: 30px 20px;
-      text-align: center;
-      font-size: 14px;
-      color: #888;
-    }
-
-    footer a {
-      color: #fff;
-      opacity: 0.7;
-    }
-
-    footer a:hover {
-      opacity: 1;
-    }
-
-    /* ----- Responsive Adjustments ----- */
-    @media (max-width: 900px) {
-      .nav-links {
-        gap: 16px;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .nav-links {
-        display: none; /* Hide links until mobile menu added */
-      }
-    }
+    .cta-band h2 { font-size: clamp(30px, 5vw, 50px); }
   </style>
 </head>
-
 <body>
+  <canvas id="starfield"></canvas>
 
-<!-- 🌐 Modern Navigation Bar -->
-<nav>
-  <div class="nav-left">
-    <img src="assets/lazarus-labs-icon.png" alt="Lazarus Labs Logo" />
-    <span class="brand">Lazarus Labs</span>
-  </div>
+  <!-- Navigation -->
+  <nav>
+    <a class="nav-brand" href="/index.html">
+      <img src="assets/lazarus-labs-icon.png" alt="Lazarus Labs" />
+      <span class="brand">Lazarus Labs</span>
+    </a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="nav-links">
+      <a href="/index.html" class="active">Home</a>
+      <a href="/projects.html">Work</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/contact.html" class="nav-cta">Start a project</a>
+    </div>
+  </nav>
 
-  <div class="nav-links">
-    <a href="/">Home</a>
-    <a href="/projects.html">Projects</a>
-    <a href="/about.html">About</a>
-    <a href="/support.html">Support</a>
-  </div>
-</nav>
+  <main>
+    <!-- Hero -->
+    <header class="hero">
+      <svg class="hero-orbit" width="760" height="760" viewBox="0 0 760 760" fill="none" aria-hidden="true" style="max-width:120vw; opacity:0.9;">
+        <defs>
+          <radialGradient id="core" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#fff" stop-opacity="0.9"/>
+            <stop offset="35%" stop-color="#fff" stop-opacity="0.12"/>
+            <stop offset="70%" stop-color="#000" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <circle class="orbit-core" cx="380" cy="380" r="120" fill="url(#core)"/>
+        <circle class="orbit-core" cx="380" cy="380" r="58" fill="#000" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+        <g class="orbit-ring r1"><ellipse cx="380" cy="380" rx="230" ry="78" stroke="rgba(255,255,255,0.18)" stroke-width="1" fill="none"/></g>
+        <g class="orbit-ring r2"><ellipse cx="380" cy="380" rx="300" ry="110" stroke="rgba(255,255,255,0.12)" stroke-width="1" fill="none" transform="rotate(18 380 380)"/></g>
+        <g class="orbit-ring r3"><ellipse cx="380" cy="380" rx="360" ry="150" stroke="rgba(255,255,255,0.08)" stroke-width="1" fill="none" transform="rotate(-12 380 380)"/></g>
+      </svg>
 
-<!-- ⭐ Hero Section -->
-<header>
-  <h1>Building the Future of Mobile Software</h1>
-  <p>
-    Lazarus Labs creates modern, high-performance mobile applications  
-    with a focus on privacy, precision, and user-first design.
-  </p>
+      <span class="hero-badge reveal"><span class="dot"></span> Available for new projects · 2026</span>
+      <h1 class="reveal" data-delay="1">Software, brought back to life.</h1>
+      <p class="reveal" data-delay="2">
+        Lazarus Labs designs and engineers premium websites and mobile apps for ambitious
+        brands. iOS, Android, and the web — built with precision, polish, and zero compromise.
+      </p>
+      <div class="hero-actions reveal" data-delay="3">
+        <a href="/contact.html" class="btn btn-primary">Start a project <span class="arrow">→</span></a>
+        <a href="/projects.html" class="btn btn-ghost">View our work</a>
+      </div>
+    </header>
 
-  <a href="mailto:support@lazaruslabs.com" class="button">Contact Support</a>
-</header>
+    <!-- Trust / project names -->
+    <section style="padding-top:30px; padding-bottom:60px;">
+      <div class="container reveal">
+        <p style="text-align:center; font-size:13px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted-2); margin-bottom:26px;">Trusted to build for</p>
+        <div class="logos-row">
+          <span>JSW Luxury Group</span><i class="sep"></i>
+          <span>Inca Cigar Group</span><i class="sep"></i>
+          <span>Toorbus</span><i class="sep"></i>
+          <span>NextFlick</span><i class="sep"></i>
+          <span>GameArchive</span>
+        </div>
+      </div>
+    </section>
 
-<!-- 🔻 Footer -->
-<footer>
-  <a href="/privacy.html">Privacy Policy</a> •
-  <a href="/terms.html">Terms of Service</a> •
-  <a href="/support.html">Support</a>
-</footer>
+    <!-- Services -->
+    <section id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">What we do</span>
+          <h2>Full-spectrum product engineering.</h2>
+          <p>From a single landing page to a cross-platform app with payments and inventory — one team, end to end.</p>
+        </div>
+        <div class="grid grid-3">
+          <div class="card reveal" data-delay="1">
+            <div class="card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8"/></svg>
+            </div>
+            <h3>Websites</h3>
+            <p>Marketing sites, storefronts, and web apps that look luxury and load instantly. Fully responsive, SEO-ready, and built to convert.</p>
+          </div>
+          <div class="card reveal" data-delay="2">
+            <div class="card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/></svg>
+            </div>
+            <h3>iOS & Android Apps</h3>
+            <p>Native-feeling mobile apps for the App Store and Google Play — shipped, reviewed, and launched. From MVP to full production.</p>
+          </div>
+          <div class="card reveal" data-delay="3">
+            <div class="card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <h3>Systems & Integrations</h3>
+            <p>User accounts, payment processing, inventory, dashboards, and APIs — the complex machinery that makes a product actually run.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- Process -->
+    <section id="process">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">How we work</span>
+          <h2>A clear path from idea to launch.</h2>
+        </div>
+        <div class="reveal">
+          <div class="process-step"><div class="step-no">01</div><div><h3>Discover</h3><p>We map your goals, users, and scope — then quote a fixed range so there are no surprises.</p></div></div>
+          <div class="process-step"><div class="step-no">02</div><div><h3>Design</h3><p>Premium UI mockups and prototypes. You see and feel the product before a line of code ships.</p></div></div>
+          <div class="process-step"><div class="step-no">03</div><div><h3>Build</h3><p>Clean, performant engineering with weekly check-ins and a live preview you can test anytime.</p></div></div>
+          <div class="process-step"><div class="step-no">04</div><div><h3>Launch & orbit</h3><p>We handle App Store / Play submission and deployment, then support you post-launch.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="padding-top:0;">
+      <div class="container">
+        <div class="cta-band reveal">
+          <span class="eyebrow" style="justify-content:center;">Let's build</span>
+          <h2>Have something you want brought to life?</h2>
+          <p style="max-width:560px; margin:0 auto 32px;">Tell me about your project and I'll send a tailored quote and timeline — usually within 24 hours.</p>
+          <div class="hero-actions" style="margin-top:0;">
+            <a href="/contact.html" class="btn btn-primary">Book a project <span class="arrow">→</span></a>
+            <a href="/pricing.html" class="btn btn-ghost">See pricing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="nav-brand" href="/index.html">
+            <img src="assets/lazarus-labs-icon.png" alt="Lazarus Labs" />
+            <span class="brand">Lazarus Labs</span>
+          </a>
+          <p>Premium app & website development. Engineering that brings bold ideas back to life.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="/index.html">Home</a>
+          <a href="/projects.html">Work</a>
+          <a href="/pricing.html">Pricing</a>
+          <a href="/contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="/pricing.html">Websites</a>
+          <a href="/pricing.html">iOS & Android apps</a>
+          <a href="/contact.html">Custom systems</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
+          <a href="/support.html">Support</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Lazarus Labs. All rights reserved.</span>
+        <a href="mailto:info@thelazaruslabs.com">info@thelazaruslabs.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/main.js"></script>
 </body>
 </html>

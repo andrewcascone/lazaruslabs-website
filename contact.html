@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Lazarus Labs</title>
+  <meta name="description" content="Book a website or app project with Lazarus Labs. Tell me about your idea and get a tailored quote and timeline, usually within 24 hours." />
+  <link rel="icon" href="assets/lazarus-labs-icon.png" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <style>
+    .contact-wrap { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 48px; align-items: start; }
+    @media (max-width: 920px) { .contact-wrap { grid-template-columns: 1fr; gap: 36px; } }
+
+    .contact-side h2 { font-size: clamp(30px, 4.5vw, 44px); }
+    .contact-side p { font-size: 17px; }
+    .contact-points { list-style: none; padding: 0; margin: 30px 0 0; }
+    .contact-points li { display: flex; gap: 14px; padding: 16px 0; border-top: 1px solid var(--line); }
+    .contact-points li:last-child { border-bottom: 1px solid var(--line); }
+    .contact-points .ico { width: 38px; height: 38px; flex-shrink: 0; border: 1px solid var(--line-strong); border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+    .contact-points b { font-family: var(--display); font-weight: 500; color: #fff; display: block; font-size: 15px; }
+    .contact-points span { font-size: 14px; color: var(--muted); }
+
+    .form-card { background: linear-gradient(180deg, var(--panel-2), var(--panel)); border: 1px solid var(--line-strong); border-radius: 20px; padding: 34px; }
+    .field { margin-bottom: 20px; }
+    .field label { display: block; font-family: var(--display); font-size: 13px; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 8px; }
+    .field input, .field select, .field textarea {
+      width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--line);
+      border-radius: 12px; padding: 14px 16px; color: #fff; font-family: var(--body); font-size: 15px;
+      transition: border-color 0.2s, background 0.2s; outline: none;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--white); background: rgba(255,255,255,0.06); }
+    .field textarea { resize: vertical; min-height: 130px; }
+    .field select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239a9aa6' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; }
+    .field select option { background: #0a0a0c; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 520px) { .two-col { grid-template-columns: 1fr; } }
+    .form-card .btn { width: 100%; justify-content: center; margin-top: 6px; }
+    .form-status { font-size: 14px; margin-top: 16px; min-height: 20px; color: var(--muted); text-align: center; }
+    .form-status.ok { color: #34d399; }
+    .form-status.err { color: #f87171; }
+    .form-foot { font-size: 13px; color: var(--muted-2); text-align: center; margin-top: 14px; }
+  </style>
+</head>
+<body>
+  <canvas id="starfield"></canvas>
+
+  <nav>
+    <a class="nav-brand" href="/index.html">
+      <img src="assets/lazarus-labs-icon.png" alt="Lazarus Labs" />
+      <span class="brand">Lazarus Labs</span>
+    </a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="nav-links">
+      <a href="/index.html">Home</a>
+      <a href="/projects.html">Work</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/contact.html" class="active">Contact</a>
+      <a href="/contact.html" class="nav-cta">Start a project</a>
+    </div>
+  </nav>
+
+  <main>
+    <section>
+      <div class="container">
+        <div class="contact-wrap">
+          <!-- Left -->
+          <div class="contact-side reveal">
+            <span class="eyebrow">Contact</span>
+            <h2>Let's build something worth launching.</h2>
+            <p>Tell me about your project — what you're building, who it's for, and roughly when you need it. I'll reply with a tailored quote and timeline, usually within 24 hours.</p>
+            <ul class="contact-points">
+              <li>
+                <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+                <span><b>Email</b><span>info@thelazaruslabs.com</span></span>
+              </li>
+              <li>
+                <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+                <span><b>Response time</b><span>Within 24 hours, Mon–Fri</span></span>
+              </li>
+              <li>
+                <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4L12 17l-6.3 4.4L8 14 2 9.4h7.6z"/></svg></span>
+                <span><b>What you get</b><span>A fixed quote, timeline & next steps</span></span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Right: form -->
+          <div class="form-card reveal" data-delay="1">
+            <!--
+              ============================================================
+              EMAIL DELIVERY SETUP  (one free step — takes ~1 minute)
+              ------------------------------------------------------------
+              1. Go to https://web3forms.com
+              2. Enter  info@thelazaruslabs.com  and click "Create Access Key".
+              3. Check that inbox for the access key (a UUID).
+              4. Paste it into the "access_key" value below, replacing
+                 YOUR_WEB3FORMS_ACCESS_KEY.
+              That's it — submissions are emailed to info@thelazaruslabs.com.
+              Until a real key is set, the form opens a pre-filled email instead.
+              ============================================================
+            -->
+            <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+              <!-- Web3Forms config -->
+              <input type="hidden" name="access_key" value="c2adb763-5b4d-4026-b88d-cc4445b93f55" />
+              <input type="hidden" name="subject" value="New project inquiry — Lazarus Labs" />
+              <input type="hidden" name="from_name" value="Lazarus Labs Website" />
+              <input type="hidden" name="redirect" value="false" />
+              <!-- Honeypot: bots fill this, humans don't -->
+              <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none !important;" aria-hidden="true" />
+              <div class="two-col">
+                <div class="field">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" name="name" required placeholder="Jane Doe" />
+                </div>
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" required placeholder="jane@company.com" />
+                </div>
+              </div>
+              <div class="field">
+                <label for="company">Company <span style="text-transform:none; color:var(--muted-2);">(optional)</span></label>
+                <input type="text" id="company" name="company" placeholder="Your brand or company" />
+              </div>
+              <div class="two-col">
+                <div class="field">
+                  <label for="project_type">Project type</label>
+                  <select id="project_type" name="project_type">
+                    <option>Website</option>
+                    <option>iOS app</option>
+                    <option>Android app</option>
+                    <option>iOS + Android app</option>
+                    <option>Web app / platform</option>
+                    <option>Not sure yet</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="budget">Budget range</label>
+                  <select id="budget" name="budget">
+                    <option>Under $2k</option>
+                    <option>$2k – $5k</option>
+                    <option>$5k – $10k</option>
+                    <option>$10k – $20k</option>
+                    <option>$20k+</option>
+                    <option>Not sure yet</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <label for="message">Tell me about your project</label>
+                <textarea id="message" name="message" required placeholder="What are you building? Who is it for? Any key features (accounts, payments, inventory) or deadlines?"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Send inquiry <span class="arrow">→</span></button>
+              <div class="form-status" id="form-status"></div>
+              <p class="form-foot">Prefer email? Reach me directly at <a href="mailto:info@thelazaruslabs.com" style="color:var(--muted); text-decoration:underline;">info@thelazaruslabs.com</a></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="nav-brand" href="/index.html">
+            <img src="assets/lazarus-labs-icon.png" alt="Lazarus Labs" />
+            <span class="brand">Lazarus Labs</span>
+          </a>
+          <p>Premium app & website development. Engineering that brings bold ideas back to life.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="/index.html">Home</a>
+          <a href="/projects.html">Work</a>
+          <a href="/pricing.html">Pricing</a>
+          <a href="/contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="/pricing.html">Websites</a>
+          <a href="/pricing.html">iOS & Android apps</a>
+          <a href="/contact.html">Custom systems</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
+          <a href="/support.html">Support</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Lazarus Labs. All rights reserved.</span>
+        <a href="mailto:info@thelazaruslabs.com">info@thelazaruslabs.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/main.js"></script>
+</body>
+</html>

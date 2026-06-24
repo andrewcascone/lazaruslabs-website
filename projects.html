@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work — Lazarus Labs</title>
+  <meta name="description" content="A constellation of websites and apps built by Lazarus Labs for luxury, retail, travel, and entertainment brands." />
+  <link rel="icon" href="assets/lazarus-labs-icon.png" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <style>
+    .work-card { display: flex; flex-direction: column; min-height: 340px; }
+    .work-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+    .tag {
+      font-family: var(--display); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); border: 1px solid var(--line); border-radius: 100px; padding: 5px 12px;
+    }
+    .work-card .planet {
+      width: 64px; height: 64px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--display); font-weight: 600; font-size: 22px; color: #fff;
+      border: 1px solid var(--line-strong);
+      background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.22), rgba(255,255,255,0.02) 60%, transparent);
+      margin-bottom: 22px;
+    }
+    .work-card h3 { font-size: 26px; margin-bottom: 8px; }
+    .work-card .summary { flex: 1; }
+    .work-link {
+      font-family: var(--display); font-size: 14px; color: var(--white);
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 18px;
+    }
+    .work-link .arrow { transition: transform 0.2s ease; }
+    .work-card:hover .work-link .arrow { transform: translateX(4px); }
+    .work-meta { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 14px; font-size: 13px; color: var(--muted-2); }
+    .work-meta b { color: var(--muted); font-weight: 500; }
+  </style>
+</head>
+<body>
+  <canvas id="starfield"></canvas>
+
+  <nav>
+    <a class="nav-brand" href="/index.html">
+      <img src="assets/lazarus-labs-icon.png" alt="Lazarus Labs" />
+      <span class="brand">Lazarus Labs</span>
+    </a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="nav-links">
+      <a href="/index.html">Home</a>
+      <a href="/projects.html" class="active">Work</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/contact.html" class="nav-cta">Start a project</a>
+    </div>
+  </nav>
+
+  <main>
+    <section style="padding-bottom:50px;">
+      <div class="container">
+        <div class="section-head reveal" style="max-width:760px;">
+          <span class="eyebrow">Selected work</span>
+          <h2>A constellation of products we've launched.</h2>
+          <p>Each one started as an idea and ended up live in front of real users — on the web, the App Store, and Google Play.</p>
+        </div>
+
+        <div class="grid grid-3">
+          <!-- JSW -->
+          <a class="card work-card reveal" href="https://www.jswluxurygroup.com/" target="_blank" rel="noopener" data-delay="1">
+            <div class="planet">J</div>
+            <div class="work-tags"><span class="tag">Website</span><span class="tag">Luxury</span></div>
+            <h3>JSW Luxury Group</h3>
+            <p class="summary">A refined, high-end brand site for a luxury group — elegant typography, immersive imagery, and a presentation worthy of the name.</p>
+            <div class="work-meta"><span><b>Web</b> · Brand site</span></div>
+            <span class="work-link">Visit site <span class="arrow">↗</span></span>
+          </a>
+
+          <!-- Inca Cigar -->
+          <a class="card work-card reveal" href="https://www.incacigargroup.com/" target="_blank" rel="noopener" data-delay="2">
+            <div class="planet">I</div>
+            <div class="work-tags"><span class="tag">Website</span><span class="tag">Retail</span></div>
+            <h3>Inca Cigar Group</h3>
+            <p class="summary">A rich, atmospheric storefront for a premium cigar brand — built to showcase product range and tell a heritage story.</p>
+            <div class="work-meta"><span><b>Web</b> · Catalog & brand</span></div>
+            <span class="work-link">Visit site <span class="arrow">↗</span></span>
+          </a>
+
+          <!-- Toorbus -->
+          <a class="card work-card reveal" href="https://www.toorbus.com/" target="_blank" rel="noopener" data-delay="3">
+            <div class="planet">T</div>
+            <div class="work-tags"><span class="tag">Website</span><span class="tag">Travel</span></div>
+            <h3>Toorbus</h3>
+            <p class="summary">A clean, conversion-focused travel & tour platform — clear journeys, strong calls to action, and a smooth booking experience.</p>
+            <div class="work-meta"><span><b>Web</b> · Booking platform</span></div>
+            <span class="work-link">Visit site <span class="arrow">↗</span></span>
+          </a>
+
+          <!-- NextFlick -->
+          <a class="card work-card reveal" href="https://apps.apple.com/ca/app/nextflick/id6759226713" target="_blank" rel="noopener" data-delay="1">
+            <div class="planet">N</div>
+            <div class="work-tags"><span class="tag">iOS App</span><span class="tag">Entertainment</span></div>
+            <h3>NextFlick</h3>
+            <p class="summary">An iOS app that helps you decide what to watch next — native, fast, and live on the App Store.</p>
+            <div class="work-meta"><span><b>iOS</b> · App Store</span></div>
+            <span class="work-link">View on App Store <span class="arrow">↗</span></span>
+          </a>
+
+          <!-- GameArchive -->
+          <a class="card work-card reveal" href="https://apps.apple.com/ca/app/gamearchive/id6756084908" target="_blank" rel="noopener" data-delay="2">
+            <div class="planet">G</div>
+            <div class="work-tags"><span class="tag">iOS App</span><span class="tag">Gaming</span></div>
+            <h3>GameArchive</h3>
+            <p class="summary">A polished iOS app for cataloguing and tracking your game collection — shipped, reviewed, and published.</p>
+            <div class="work-meta"><span><b>iOS</b> · App Store</span></div>
+            <span class="work-link">View on App Store <span class="arrow">↗</span></span>
+          </a>
+
+          <!-- Your project -->
+          <a class="card work-card reveal" href="/contact.html" data-delay="3" style="border-style:dashed;">
+            <div class="planet" style="background:transparent;">+</div>
+            <div class="work-tags"><span class="tag">Your idea</span></div>
+            <h3>Your project here</h3>
+            <p class="summary">The next launch on this list could be yours. Tell me what you're building and let's put it into orbit.</p>
+            <div class="work-meta"><span><b>Web</b> · <b>iOS</b> · <b>Android</b></span></div>
+            <span class="work-link">Start a project <span class="arrow">→</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top:30px;">
+      <div class="container">
+        <div class="cta-band reveal" style="text-align:center; border:1px solid var(--line); border-radius:24px; padding:64px 30px; background:radial-gradient(600px 300px at 50% 0%, rgba(255,255,255,0.07), transparent 70%), linear-gradient(180deg, var(--panel-2), var(--panel));">
+          <span class="eyebrow" style="justify-content:center;">Ready when you are</span>
+          <h2 style="font-size:clamp(28px,4.5vw,44px);">Let's add your product to the constellation.</h2>
+          <div class="hero-actions" style="margin-top:24px;">
+            <a href="/contact.html" class="btn btn-primary">Book a project <span class="arrow">→</span></a>
+            <a href="/pricing.html" class="btn btn-ghost">See pricing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="nav-brand" href="/index.html">
+            <img src="assets/lazarus-labs-icon.png" alt="Lazarus Labs" />
+            <span class="brand">Lazarus Labs</span>
+          </a>
+          <p>Premium app & website development. Engineering that brings bold ideas back to life.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="/index.html">Home</a>
+          <a href="/projects.html">Work</a>
+          <a href="/pricing.html">Pricing</a>
+          <a href="/contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="/pricing.html">Websites</a>
+          <a href="/pricing.html">iOS & Android apps</a>
+          <a href="/contact.html">Custom systems</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
+          <a href="/support.html">Support</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Lazarus Labs. All rights reserved.</span>
+        <a href="mailto:info@thelazaruslabs.com">info@thelazaruslabs.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/main.js"></script>
+</body>
+</html>

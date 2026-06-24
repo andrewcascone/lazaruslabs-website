@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing — Lazarus Labs</title>
+  <meta name="description" content="Transparent starting prices for websites and iOS / Android apps, plus a live estimate calculator. Features like accounts, payments, and inventory adjust the quote." />
+  <link rel="icon" href="assets/lazarus-labs-icon.png" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <style>
+    /* Pricing cards */
+    .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    @media (max-width: 980px) { .price-grid { grid-template-columns: 1fr; } }
+    .price-card { display: flex; flex-direction: column; }
+    .price-card.featured { border-color: var(--line-strong); box-shadow: 0 0 0 1px var(--line-strong), 0 30px 80px rgba(0,0,0,0.6); }
+    .price-card .badge { position: absolute; top: 20px; right: 20px; font-family: var(--display); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--black); background: #fff; padding: 4px 10px; border-radius: 100px; }
+    .price-card h3 { font-size: 22px; margin-bottom: 4px; }
+    .price-card .tagline { font-size: 14px; color: var(--muted); margin-bottom: 22px; }
+    .price-card .amount { font-family: var(--display); font-size: 38px; font-weight: 600; color: #fff; letter-spacing: -0.02em; }
+    .price-card .amount small { font-size: 14px; color: var(--muted); font-weight: 400; display: block; letter-spacing: 0; }
+    .price-card ul { list-style: none; padding: 0; margin: 26px 0 28px; flex: 1; }
+    .price-card li { display: flex; gap: 12px; padding: 9px 0; font-size: 14.5px; color: var(--text); border-top: 1px solid var(--line); }
+    .price-card li:first-child { border-top: 0; }
+    .price-card li svg { flex-shrink: 0; margin-top: 3px; }
+
+    .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 100px; padding: 5px; gap: 4px; margin-bottom: 44px; }
+    .seg button { font-family: var(--display); font-size: 14px; font-weight: 500; color: var(--muted); background: transparent; border: 0; padding: 10px 22px; border-radius: 100px; cursor: pointer; transition: color 0.2s, background 0.2s; }
+    .seg button.active { color: var(--black); background: #fff; }
+
+    /* Estimator */
+    .est-wrap { display: grid; grid-template-columns: 1.5fr 1fr; gap: 28px; align-items: start; }
+    @media (max-width: 980px) { .est-wrap { grid-template-columns: 1fr; } }
+    .est-block { margin-bottom: 30px; }
+    .est-block > label.h { font-family: var(--display); font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 16px; }
+    .opt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 560px) { .opt-grid { grid-template-columns: 1fr; } }
+    .opt {
+      position: relative; display: flex; flex-direction: column; gap: 4px;
+      border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .opt:hover { border-color: var(--line-strong); }
+    .opt input { position: absolute; opacity: 0; pointer-events: none; }
+    .opt .opt-title { font-family: var(--display); font-weight: 500; font-size: 15px; color: #fff; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+    .opt .opt-sub { font-size: 12.5px; color: var(--muted); }
+    .opt .opt-price { font-size: 12.5px; color: var(--muted); white-space: nowrap; }
+    .opt input:checked + .opt-title { color: #fff; }
+    .opt:has(input:checked) { border-color: #fff; background: rgba(255,255,255,0.05); }
+    .opt:has(input:checked)::before { content: "✓"; position: absolute; top: 12px; right: 14px; font-size: 12px; color: #fff; }
+    .opt:has(input:checked) .opt-title .opt-price { display: none; }
+
+    .est-summary {
+      position: sticky; top: 96px;
+      border: 1px solid var(--line-strong); border-radius: 20px; padding: 30px;
+      background: radial-gradient(400px 200px at 50% 0%, rgba(255,255,255,0.08), transparent 70%), linear-gradient(180deg, var(--panel-2), var(--panel));
+    }
+    .est-summary .est-label { font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+    #est-range { font-family: var(--display); font-size: clamp(30px, 5vw, 40px); font-weight: 600; color: #fff; margin: 10px 0 6px; letter-spacing: -0.02em; }
+    .est-summary .est-note { font-size: 13px; color: var(--muted); margin-bottom: 22px; }
+    .est-row { display: flex; justify-content: space-between; padding: 12px 0; border-top: 1px solid var(--line); font-size: 14px; }
+    .est-row span:first-child { color: var(--muted); }
+    .est-row span:last-child { color: #fff; }
+    .est-summary .btn { width: 100%; justify-content: center; margin-top: 24px; }
+
+    .faq { border-top: 1px solid var(--line); padding: 26px 0; }
+    .faq h3 { font-size: 19px; margin-bottom: 8px; }
+    .faq p { margin: 0; font-size: 15px; max-width: 720px; }
+  </style>
+</head>
+<body>
+  <canvas id="starfield"></canvas>
+
+  <nav>
+    <a class="nav-brand" href="/index.html">
+      <img src="assets/lazarus-labs-icon.png" alt="Lazarus Labs" />
+      <span class="brand">Lazarus Labs</span>
+    </a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="nav-links">
+      <a href="/index.html">Home</a>
+      <a href="/projects.html">Work</a>
+      <a href="/pricing.html" class="active">Pricing</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/contact.html" class="nav-cta">Start a project</a>
+    </div>
+  </nav>
+
+  <main>
+    <section style="padding-bottom:40px;">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow" style="justify-content:center;">Pricing</span>
+          <h2>Honest pricing for serious work.</h2>
+          <p>Every project is unique, so these are transparent starting points. Features like user accounts, payments, and inventory adjust the final quote — use the estimator below to ballpark yours.</p>
+        </div>
+
+        <!-- Toggle -->
+        <div style="text-align:center;" class="reveal">
+          <div class="seg" id="price-toggle">
+            <button class="active" data-target="web">Websites</button>
+            <button data-target="app">Mobile Apps</button>
+          </div>
+        </div>
+
+        <!-- Website tiers -->
+        <div class="price-grid reveal" id="tiers-web">
+          <div class="card price-card">
+            <h3>Landing Page</h3>
+            <div class="tagline">A single, high-converting page.</div>
+            <div class="amount">$1000<small>starting · one-time</small></div>
+            <ul>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Custom one-page design</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Fully mobile responsive</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Contact form & SEO basics</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Launch & deployment</li>
+            </ul>
+            <a href="/contact.html" class="btn btn-ghost" style="justify-content:center;">Get started</a>
+          </div>
+          <div class="card price-card featured">
+            <span class="badge">Most popular</span>
+            <h3>Business Website</h3>
+            <div class="tagline">A full multi-page presence.</div>
+            <div class="amount">$2,200<small>starting · one-time</small></div>
+            <ul>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Up to ~6 custom pages</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> CMS so you can edit content</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Animations & premium polish</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> SEO & analytics setup</li>
+            </ul>
+            <a href="/contact.html" class="btn btn-primary" style="justify-content:center;">Get started</a>
+          </div>
+          <div class="card price-card">
+            <h3>Premium / E-commerce</h3>
+            <div class="tagline">Storefronts & web apps.</div>
+            <div class="amount">$4,500<small>starting · one-time</small></div>
+            <ul>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Online store or web app</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Payments & checkout</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Inventory & order management</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Custom integrations</li>
+            </ul>
+            <a href="/contact.html" class="btn btn-ghost" style="justify-content:center;">Get started</a>
+          </div>
+        </div>
+
+        <!-- App tiers -->
+        <div class="price-grid reveal" id="tiers-app" style="display:none;">
+          <div class="card price-card">
+            <h3>MVP App</h3>
+            <div class="tagline">Get your idea live, fast.</div>
+            <div class="amount">$4,000<small>starting · per platform</small></div>
+            <ul>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Core feature set (MVP)</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Native iOS or Android</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Polished, custom UI</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Store submission included</li>
+            </ul>
+            <a href="/contact.html" class="btn btn-ghost" style="justify-content:center;">Get started</a>
+          </div>
+          <div class="card price-card featured">
+            <span class="badge">Most popular</span>
+            <h3>Standard App</h3>
+            <div class="tagline">A full-featured product.</div>
+            <div class="amount">$8,000<small>starting · per platform</small></div>
+            <ul>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> User accounts & profiles</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Backend & cloud database</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Push notifications</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Analytics & crash reporting</li>
+            </ul>
+            <a href="/contact.html" class="btn btn-primary" style="justify-content:center;">Get started</a>
+          </div>
+          <div class="card price-card">
+            <h3>Advanced Platform</h3>
+            <div class="tagline">Complex, scalable apps.</div>
+            <div class="amount">$16,000<small>starting · per platform</small></div>
+            <ul>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Payments & subscriptions</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Inventory / marketplace logic</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Admin dashboard</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Third-party integrations</li>
+            </ul>
+            <a href="/contact.html" class="btn btn-ghost" style="justify-content:center;">Get started</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Estimator -->
+    <section style="padding-top:40px;">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Live estimate</span>
+          <h2>Build your quote.</h2>
+          <p>Pick a base project and the features you need. Complexity drivers — accounts, payments, inventory — adjust the range in real time.</p>
+        </div>
+
+        <div class="est-wrap reveal" id="estimator">
+          <div>
+            <!-- Base tier -->
+            <div class="est-block">
+              <label class="h">1 · Choose a base project</label>
+              <div class="opt-grid">
+                <label class="opt"><input type="radio" name="tier" data-type="web" data-low="900" data-high="1800"><span class="opt-title">Landing Page <span class="opt-price">$900+</span></span><span class="opt-sub">Single page, web</span></label>
+                <label class="opt"><input type="radio" name="tier" data-type="web" data-low="2200" data-high="4500" checked><span class="opt-title">Business Website <span class="opt-price">$2.2k+</span></span><span class="opt-sub">Multi-page, CMS</span></label>
+                <label class="opt"><input type="radio" name="tier" data-type="web" data-low="4500" data-high="9000"><span class="opt-title">Premium / E-commerce <span class="opt-price">$4.5k+</span></span><span class="opt-sub">Store or web app</span></label>
+                <label class="opt"><input type="radio" name="tier" data-type="app" data-low="4000" data-high="8000"><span class="opt-title">MVP App <span class="opt-price">$4k+</span></span><span class="opt-sub">Mobile, core features</span></label>
+                <label class="opt"><input type="radio" name="tier" data-type="app" data-low="8000" data-high="16000"><span class="opt-title">Standard App <span class="opt-price">$8k+</span></span><span class="opt-sub">Mobile, full product</span></label>
+                <label class="opt"><input type="radio" name="tier" data-type="app" data-low="16000" data-high="32000"><span class="opt-title">Advanced Platform <span class="opt-price">$16k+</span></span><span class="opt-sub">Mobile, complex</span></label>
+              </div>
+            </div>
+
+            <!-- Platform (apps only) -->
+            <div class="est-block" id="platform-group" style="display:none;">
+              <label class="h">2 · Platforms</label>
+              <div class="opt-grid">
+                <label class="opt"><input type="checkbox" name="platform" value="ios" checked><span class="opt-title">iOS (App Store)</span><span class="opt-sub">iPhone & iPad</span></label>
+                <label class="opt"><input type="checkbox" name="platform" value="android"><span class="opt-title">Android (Google Play)</span><span class="opt-sub">+~60% to build both</span></label>
+              </div>
+            </div>
+
+            <!-- Add-ons -->
+            <div class="est-block">
+              <label class="h">3 · Add features</label>
+              <div class="opt-grid">
+                <label class="opt"><input type="checkbox" name="addon" data-low="900" data-high="1800"><span class="opt-title">User accounts & auth <span class="opt-price">+$900</span></span><span class="opt-sub">Sign-up, login, profiles</span></label>
+                <label class="opt"><input type="checkbox" name="addon" data-low="1200" data-high="2500"><span class="opt-title">Payment processing <span class="opt-price">+$1.2k</span></span><span class="opt-sub">Stripe, checkout, subscriptions</span></label>
+                <label class="opt"><input type="checkbox" name="addon" data-low="1500" data-high="3000"><span class="opt-title">Inventory management <span class="opt-price">+$1.5k</span></span><span class="opt-sub">Stock, products, orders</span></label>
+                <label class="opt"><input type="checkbox" name="addon" data-low="1200" data-high="2500"><span class="opt-title">Admin dashboard <span class="opt-price">+$1.2k</span></span><span class="opt-sub">Manage content & users</span></label>
+                <label class="opt"><input type="checkbox" name="addon" data-low="500" data-high="1000"><span class="opt-title">Push notifications <span class="opt-price">+$500</span></span><span class="opt-sub">Re-engage your users</span></label>
+                <label class="opt"><input type="checkbox" name="addon" data-low="700" data-high="1800"><span class="opt-title">Integrations & APIs <span class="opt-price">+$700</span></span><span class="opt-sub">Maps, CRMs, third-party</span></label>
+                <label class="opt"><input type="checkbox" name="addon" data-low="700" data-high="1500"><span class="opt-title">Content / CMS <span class="opt-price">+$700</span></span><span class="opt-sub">Edit content yourself</span></label>
+                <label class="opt"><input type="checkbox" name="addon" data-low="900" data-high="2200"><span class="opt-title">Custom branding & design <span class="opt-price">+$900</span></span><span class="opt-sub">Logo, identity, motion</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Summary -->
+          <div class="est-summary">
+            <div class="est-label">Estimated investment</div>
+            <div id="est-range">$2,200 – $4,500</div>
+            <div class="est-note">A ballpark range — your exact quote depends on scope. No obligation.</div>
+            <div class="est-row"><span>Typical timeline</span><span id="est-timeline">3–7 weeks</span></div>
+            <div class="est-row"><span>Payment</span><span>50% to start</span></div>
+            <div class="est-row"><span>Revisions</span><span>Included</span></div>
+            <a href="/contact.html" class="btn btn-primary">Get an exact quote <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section style="padding-top:30px;">
+      <div class="container" style="max-width:880px;">
+        <div class="section-head reveal"><span class="eyebrow">Good to know</span><h2>Pricing questions, answered.</h2></div>
+        <div class="reveal">
+          <div class="faq"><h3>Why a range instead of one number?</h3><p>Every project has different complexity. The estimator gives an honest ballpark; after a quick call I'll send a fixed quote so you know exactly what you're paying.</p></div>
+          <div class="faq"><h3>What makes a project cost more?</h3><p>The big drivers are user accounts, payment processing, and inventory/marketplace logic — anything with a backend and data. Building for both iOS and Android also adds to the total.</p></div>
+          <div class="faq"><h3>How do payments work?</h3><p>Typically 50% to begin and 50% on launch, with larger projects split into milestones. No surprise invoices.</p></div>
+          <div class="faq"><h3>Do you offer ongoing support?</h3><p>Yes — optional monthly maintenance plans cover updates, hosting, store re-submissions, and small changes after launch.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="nav-brand" href="/index.html">
+            <img src="assets/lazarus-labs-icon.png" alt="Lazarus Labs" />
+            <span class="brand">Lazarus Labs</span>
+          </a>
+          <p>Premium app & website development. Engineering that brings bold ideas back to life.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="/index.html">Home</a>
+          <a href="/projects.html">Work</a>
+          <a href="/pricing.html">Pricing</a>
+          <a href="/contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="/pricing.html">Websites</a>
+          <a href="/pricing.html">iOS & Android apps</a>
+          <a href="/contact.html">Custom systems</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
+          <a href="/support.html">Support</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Lazarus Labs. All rights reserved.</span>
+        <a href="mailto:info@thelazaruslabs.com">info@thelazaruslabs.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/main.js"></script>
+  <script>
+    // Toggle between website / app pricing tables
+    (function () {
+      const toggle = document.getElementById('price-toggle');
+      const web = document.getElementById('tiers-web');
+      const app = document.getElementById('tiers-app');
+      toggle.addEventListener('click', e => {
+        const btn = e.target.closest('button');
+        if (!btn) return;
+        toggle.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const isApp = btn.dataset.target === 'app';
+        web.style.display = isApp ? 'none' : '';
+        app.style.display = isApp ? '' : 'none';
+      });
+    })();
+  </script>
+</body>
+</html>
