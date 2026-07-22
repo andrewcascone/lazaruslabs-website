@@ -246,7 +246,7 @@ nav {
 section { padding: 110px 0; }
 .section-head { max-width: 640px; margin-bottom: 56px; }
 .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
-.section-head h2 { font-size: clamp(30px, 4.5vw, 46px); }
+.section-head h1, .section-head h2 { font-size: clamp(30px, 4.5vw, 46px); }
 .section-head p { font-size: 18px; }
 
 /* ----------------- Hero ----------------- */

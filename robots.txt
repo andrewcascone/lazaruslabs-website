@@ -1,0 +1,5 @@
+# https://thelazaruslabs.com robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://thelazaruslabs.com/sitemap.xml
