@@ -20,23 +20,44 @@ const TYPES = {
   '.json': 'application/json',
 };
 
+// Mirrors Cloudflare Pages routing: /foo serves foo.html, /foo.html redirects
+// to /foo, /dir/ serves dir/index.html, and anything else gets 404.html (404).
+function send(res, status, filePath) {
+  fs.readFile(filePath, (e, data) => {
+    if (e) { res.writeHead(404); res.end('Not found'); return; }
+    res.writeHead(status, { 'Content-Type': TYPES[path.extname(filePath)] || 'application/octet-stream' });
+    res.end(data);
+  });
+}
+
+function isFile(p) {
+  try { return fs.statSync(p).isFile(); } catch { return false; }
+}
+
 http.createServer((req, res) => {
-  let urlPath = decodeURIComponent(req.url.split('?')[0]);
-  if (urlPath === '/') urlPath = '/index.html';
+  const urlPath = decodeURIComponent(req.url.split('?')[0]);
 
   // Resolve safely within ROOT (prevent path traversal)
-  let filePath = path.normalize(path.join(ROOT, urlPath));
+  const filePath = path.normalize(path.join(ROOT, urlPath));
   if (!filePath.startsWith(ROOT)) {
     res.writeHead(403); res.end('Forbidden'); return;
   }
 
-  fs.stat(filePath, (err, stat) => {
-    if (err) { res.writeHead(404); res.end('Not found'); return; }
-    if (stat.isDirectory()) filePath = path.join(filePath, 'index.html');
-    fs.readFile(filePath, (e, data) => {
-      if (e) { res.writeHead(404); res.end('Not found'); return; }
-      res.writeHead(200, { 'Content-Type': TYPES[path.extname(filePath)] || 'application/octet-stream' });
-      res.end(data);
-    });
-  });
+  if (urlPath.endsWith('.html') && isFile(filePath)) {
+    let pretty = urlPath.slice(0, -5);
+    if (pretty.endsWith('/index')) pretty = pretty.slice(0, -5);
+    res.writeHead(308, { Location: pretty || '/' }); res.end(); return;
+  }
+
+  const candidates = urlPath.endsWith('/')
+    ? [path.join(filePath, 'index.html')]
+    : [filePath, filePath + '.html'];
+  const hit = candidates.find(isFile);
+  if (hit) { send(res, 200, hit); return; }
+
+  if (!urlPath.endsWith('/') && isFile(path.join(filePath, 'index.html'))) {
+    res.writeHead(308, { Location: urlPath + '/' }); res.end(); return;
+  }
+
+  send(res, 404, path.join(ROOT, '404.html'));
 }).listen(PORT, () => console.log('Preview server on http://localhost:' + PORT));

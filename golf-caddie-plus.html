@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Golf Caddie+ — Golf GPS, Scorecard & AI Coach | Lazarus Labs</title>
+  <meta name="description" content="Golf Caddie+ is a golf GPS, scorecard and AI coach for iPhone, with an Apple Watch app that measures distances on its own so your phone can stay in the bag." />
+  <link rel="canonical" href="https://thelazaruslabs.com/golf-caddie-plus" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#000000" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Lazarus Labs" />
+  <meta property="og:title" content="Golf Caddie+ — Your caddie. Your coach. Your card." />
+  <meta property="og:description" content="A golf GPS, scorecard and AI coach, with an Apple Watch companion that measures distances on its own." />
+  <meta property="og:url" content="https://thelazaruslabs.com/golf-caddie-plus" />
+  <meta property="og:image" content="https://thelazaruslabs.com/assets/og-image.png" />
+  <meta name="twitter:card" content="summary" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Golf Caddie+",
+    "url": "https://thelazaruslabs.com/golf-caddie-plus",
+    "operatingSystem": "iOS, watchOS",
+    "applicationCategory": "SportsApplication",
+    "description": "A golf GPS, scorecard and AI coach, with an Apple Watch companion that measures distances on its own.",
+    "publisher": { "@type": "Organization", "name": "Lazarus Labs", "url": "https://thelazaruslabs.com/" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <link rel="icon" href="/assets/lazarus-labs-icon.png" />
+  <link rel="stylesheet" href="/assets/styles.css" />
+  <link rel="stylesheet" href="/assets/golf-caddie-plus.css" />
+</head>
+<body>
+  <canvas id="starfield"></canvas>
+  <nav class="app-nav">
+    <a class="nav-brand" href="/">
+      <img src="/assets/lazarus-labs-icon.png" alt="Lazarus Labs" />
+      <span class="brand">Lazarus Labs</span>
+    </a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="nav-links">
+      <a href="/golf-caddie-plus" class="active" aria-current="page">Golf Caddie+</a>
+      <a href="/golf-caddie-plus/privacy">Privacy</a>
+      <a href="/golf-caddie-plus/terms">Terms</a>
+      <a href="/golf-caddie-plus/support">Support</a>
+    </div>
+  </nav>
+
+  <main>
+    <header class="app-hero">
+      <div class="app-mark" aria-hidden="true">
+        <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21V3l9 4-9 4"/><ellipse cx="12" cy="21" rx="8" ry="1.6"/></svg>
+      </div>
+      <span class="eyebrow">An app by Lazarus Labs</span>
+      <h1>Golf Caddie+</h1>
+      <p class="tagline">Your caddie. Your coach. Your card.</p>
+      <p class="pitch">
+        Golf Caddie+ is a golf GPS, scorecard and AI coach in one app. Get distances to the green and
+        hazards, keep score and track every shot, and get coaching built around your game. The Apple Watch
+        companion measures distances on its own, so your phone can stay in the bag.
+      </p>
+      <div class="hero-actions">
+        <!--
+          App Store button: hidden until the app is live.
+          To show it, replace APP_STORE_URL below with the app's App Store link and remove this comment wrapper.
+          <a href="APP_STORE_URL" class="btn btn-primary">Download on the App Store <span class="arrow">→</span></a>
+        -->
+        <a href="#features" class="btn btn-ghost">See features</a>
+        <a href="#plans" class="btn btn-ghost">See plans</a>
+      </div>
+    </header>
+
+    <section id="features" class="app-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Features</span>
+          <h2>Everything you need, from the first tee to the 19th hole.</h2>
+        </div>
+        <div class="feature-grid">
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+            <h3>GPS distances</h3>
+            <p>Distances to the front, centre and back of the green, and to hazards.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></div>
+            <h3>Course finder</h3>
+            <p>Find courses near you or by name, with course information at a glance.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
+            <h3>Scorecard & stats</h3>
+            <p>Keep score, track your shots and see the statistics behind your game.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3"/></svg></div>
+            <h3>On-device swing analysis</h3>
+            <p>Analyse your swing with your camera. Analysis runs on your iPhone, and your videos never leave it.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></div>
+            <h3>AI coach</h3>
+            <p>Chat with an AI coach, get daily tips and follow personalised practice plans.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/><path d="M8 10h8M8 14h5"/></svg></div>
+            <h3>Scorecard scanning</h3>
+            <p>Photograph a paper scorecard to add a course that isn't in the app yet.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="3"/><path d="M9 6l.6-3h4.8l.6 3M9 18l.6 3h4.8l.6-3"/></svg></div>
+            <h3>Apple Watch app</h3>
+            <p>Distances on your wrist, a watch-face complication, and rounds saved to Apple Health as golf workouts.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Privacy</span>
+          <h2>Built to respect your data.</h2>
+        </div>
+        <ul class="trust-list">
+          <li><strong>Swing videos stay on your phone</strong>Swing analysis runs on your device. Videos are never uploaded.</li>
+          <li><strong>AI only with your permission</strong>Nothing is sent to our AI provider until you allow it, and you can turn it off at any time.</li>
+          <li><strong>No ads, no tracking</strong>No ad networks, no tracking across other apps, and we never sell your data.</li>
+        </ul>
+        <p class="plan-note">Read the full <a href="/golf-caddie-plus/privacy">privacy policy</a>.</p>
+      </div>
+    </section>
+
+    <section id="plans" class="app-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Plans</span>
+          <h2>Start free. Upgrade when you're ready.</h2>
+          <p>New subscribers get a 7-day free trial where one is offered.</p>
+        </div>
+        <div class="plan-grid">
+          <div class="card plan">
+            <h3>Free</h3>
+            <div class="amount">$0</div>
+            <p>Play, keep score, basic GPS and statistics.</p>
+          </div>
+          <div class="card plan featured">
+            <h3>Premium</h3>
+            <div class="amount">$9.99 <small>/ month</small></div>
+            <p class="alt">or $79.99 / year</p>
+          </div>
+          <div class="card plan">
+            <h3>Pro</h3>
+            <div class="amount">$19.99 <small>/ month</small></div>
+            <p class="alt">or $149.99 / year</p>
+          </div>
+        </div>
+        <p class="plan-note">
+          Prices are in US dollars; the App Store shows prices in your local currency. Premium and Pro are
+          auto-renewing subscriptions that renew unless cancelled at least 24 hours before the end of the current
+          period. See the <a href="/golf-caddie-plus/terms">terms of service</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Golf Caddie+</h4>
+          <a href="/golf-caddie-plus" aria-current="page">About the app</a>
+          <a href="/golf-caddie-plus/privacy">Privacy Policy</a>
+          <a href="/golf-caddie-plus/terms">Terms of Service</a>
+          <a href="/golf-caddie-plus/support">Support</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:support@thelazaruslabs.com">support@thelazaruslabs.com</a>
+          <a href="/">Lazarus Labs</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Lazarus Labs. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+  <script src="/assets/main.js"></script>
+</body>
+</html>

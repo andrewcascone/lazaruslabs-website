@@ -1,0 +1,173 @@
+/* =========================================================
+   Golf Caddie+ — app pages (landing, privacy, terms, support)
+   Builds on styles.css. Mobile-first; no content depends on JS.
+   ========================================================= */
+
+/* ---------- Nav (app pages) ---------- */
+.app-nav .nav-links { gap: 26px; }
+
+/* ---------- Placeholders still to fill in before publishing ---------- */
+mark.todo {
+  background: rgba(250, 204, 21, 0.12);
+  color: #fde68a;
+  border: 1px dashed rgba(250, 204, 21, 0.6);
+  border-radius: 6px;
+  padding: 0 6px;
+  font-size: 0.92em;
+}
+
+/* ---------- Legal / support documents ---------- */
+.doc { padding: 48px 0 64px; }
+.doc .container { max-width: 760px; padding: 0 16px; }
+.doc h1 { font-size: clamp(32px, 8vw, 50px); margin-bottom: 10px; }
+.doc .effective {
+  font-family: var(--display);
+  font-size: 14px;
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  display: inline-block;
+  padding: 6px 14px;
+  margin: 4px 0 24px;
+}
+.doc h2 {
+  font-size: 22px;
+  margin: 44px 0 12px;
+  scroll-margin-top: 84px;
+}
+.doc h3 {
+  font-size: 17px;
+  margin: 26px 0 8px;
+  color: var(--text);
+  scroll-margin-top: 84px;
+}
+.doc p, .doc li { color: var(--muted); font-size: 16px; line-height: 1.7; }
+.doc li { margin-bottom: 6px; }
+.doc ul, .doc ol { padding-left: 22px; margin: 0 0 1em; }
+.doc strong { color: var(--white); font-weight: 600; }
+.doc a { color: var(--white); text-decoration: underline; text-underline-offset: 3px; word-break: break-word; }
+.doc .lede { font-size: 17px; }
+
+.toc {
+  background: linear-gradient(180deg, var(--panel-2), var(--panel));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 20px 12px;
+  margin: 8px 0 12px;
+}
+.toc h2 { font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-2); margin: 0 0 10px; }
+.toc ol { margin: 0; padding-left: 20px; }
+.doc .toc li { font-size: 15px; margin-bottom: 4px; line-height: 1.55; }
+.doc .toc a { color: var(--text); text-decoration: none; }
+.doc .toc a:hover { text-decoration: underline; }
+
+.callout {
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 18px 20px;
+  margin: 16px 0;
+}
+.callout p:last-child, .callout ul:last-child { margin-bottom: 0; }
+
+.faq details, .doc [id] {
+  scroll-margin-top: 84px;
+}
+.faq details {
+  border-top: 1px solid var(--line);
+  padding: 4px 0;
+}
+.faq details:last-child { border-bottom: 1px solid var(--line); }
+.faq summary {
+  font-family: var(--display);
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--white);
+  cursor: pointer;
+  padding: 14px 28px 14px 0;
+  position: relative;
+  list-style: none;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+";
+  position: absolute;
+  right: 2px;
+  top: 12px;
+  font-size: 20px;
+  color: var(--muted);
+}
+.faq details[open] summary::after { content: "−"; }
+.faq details > :not(summary) { margin-top: 0; }
+.faq details > :last-child { margin-bottom: 14px; }
+
+/* ---------- Landing page ---------- */
+.app-hero {
+  position: relative;
+  text-align: center;
+  padding: 64px 16px 56px;
+}
+.app-hero .app-mark {
+  width: 76px; height: 76px;
+  margin: 0 auto 22px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--line-strong);
+  border-radius: 20px;
+  background: linear-gradient(180deg, var(--panel-2), var(--panel));
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.08);
+}
+.app-hero h1 {
+  font-size: clamp(46px, 13vw, 96px);
+  margin-bottom: 12px;
+  background: linear-gradient(180deg, #ffffff 0%, #b9b9c6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.app-hero .tagline {
+  font-family: var(--display);
+  font-size: clamp(19px, 4.6vw, 26px);
+  color: var(--text);
+  margin-bottom: 18px;
+}
+.app-hero .pitch { max-width: 620px; margin: 0 auto 28px; font-size: 17px; }
+.app-hero .hero-actions { margin-top: 0; }
+
+.app-section { padding: 56px 0; }
+.app-section .container { padding: 0 16px; }
+.app-section .section-head { margin-bottom: 32px; }
+
+.feature-grid { display: grid; gap: 14px; grid-template-columns: 1fr; }
+.feature-grid .card { padding: 22px; }
+.feature-grid .card-icon { margin-bottom: 14px; }
+.feature-grid h3 { font-size: 18px; margin-bottom: 6px; }
+@media (min-width: 640px) { .feature-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; } }
+@media (min-width: 1000px) { .feature-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.trust-list { display: grid; gap: 14px; grid-template-columns: 1fr; margin: 0; padding: 0; list-style: none; }
+.trust-list li {
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+  color: var(--muted);
+  font-size: 15px;
+}
+.trust-list strong { display: block; color: var(--white); font-family: var(--display); font-weight: 500; font-size: 17px; margin-bottom: 2px; }
+@media (min-width: 800px) { .trust-list { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
+
+.plan-grid { display: grid; gap: 14px; grid-template-columns: 1fr; }
+@media (min-width: 860px) { .plan-grid { grid-template-columns: repeat(3, 1fr); gap: 18px; } }
+.plan { padding: 26px 22px; }
+.plan.featured { border-color: var(--line-strong); }
+.plan h3 { font-size: 22px; margin-bottom: 8px; }
+.plan .amount { font-family: var(--display); font-size: 34px; font-weight: 600; color: var(--white); letter-spacing: -0.02em; line-height: 1.1; }
+.plan .amount small { font-size: 15px; color: var(--muted); font-weight: 400; letter-spacing: 0; }
+.plan .alt { font-size: 15px; color: var(--muted); margin: 4px 0 14px; }
+.plan p:last-child { margin-bottom: 0; }
+.plan-note { font-size: 14px; color: var(--muted-2); margin-top: 20px; }
+.plan-note a { color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- Footer (app pages) ---------- */
+.app-footer { padding: 40px 0 32px; margin-top: 0; }
+.app-footer .container { padding: 0 16px; }
+.app-footer .footer-grid { margin-bottom: 28px; gap: 28px; }
+.app-footer .footer-col a[aria-current="page"] { color: var(--white); }
