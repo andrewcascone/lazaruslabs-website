@@ -1,5 +1,5 @@
 /* =========================================================
-   Golf Caddie+ — app pages (landing, privacy, terms, support)
+   App pages — landing pages, and Golf Caddie+ legal/support pages
    Builds on styles.css. Mobile-first; no content depends on JS.
    ========================================================= */
 
@@ -132,6 +132,77 @@ mark.todo {
 }
 .app-hero .pitch { max-width: 620px; margin: 0 auto 28px; font-size: 17px; }
 .app-hero .hero-actions { margin-top: 0; }
+
+.app-hero .app-icon {
+  width: 92px; height: 92px;
+  margin: 0 auto 22px;
+  border-radius: 22px;
+  border: 1px solid var(--line-strong);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.08);
+  display: block;
+}
+.app-hero .app-meta {
+  font-family: var(--display);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--muted-2);
+  margin: 0 0 28px;
+}
+
+/* ---------- Store buttons ---------- */
+.store-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+.store-actions .btn { font-size: 14.5px; }
+.store-actions .btn small {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.65;
+  font-weight: 400;
+}
+
+/* ---------- Screenshot gallery ---------- */
+.shots {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px 16px 18px;
+  margin: 0 -16px;
+  scrollbar-width: thin;
+}
+.shots figure {
+  flex: 0 0 auto;
+  width: 208px;
+  margin: 0;
+  scroll-snap-align: center;
+}
+.shots img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+.shots figcaption {
+  font-size: 13px;
+  color: var(--muted-2);
+  margin-top: 10px;
+  line-height: 1.45;
+}
+.shots-hint { font-size: 13px; color: var(--muted-2); margin: 0 0 18px; }
+@media (min-width: 700px) {
+  .shots { flex-wrap: wrap; overflow-x: visible; justify-content: center; gap: 22px; margin: 0; padding: 0; }
+  .shots figure { width: 216px; }
+  .shots-hint { display: none; }
+}
 
 .app-section { padding: 56px 0; }
 .app-section .container { padding: 0 16px; }

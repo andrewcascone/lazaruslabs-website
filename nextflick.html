@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>NextFlick — Find Your Next Watch | Lazarus Labs</title>
+  <meta name="description" content="NextFlick is a movie and TV discovery app with personalised recommendations, an AI assistant called JARVIS, a watchlist, and streaming availability. Free on iOS and Android." />
+  <link rel="canonical" href="https://thelazaruslabs.com/nextflick" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#000000" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Lazarus Labs" />
+  <meta property="og:title" content="NextFlick — Find your next watch, faster." />
+  <meta property="og:description" content="Personalised movie and TV recommendations, an AI assistant, a watchlist, and where to stream every title." />
+  <meta property="og:url" content="https://thelazaruslabs.com/nextflick" />
+  <meta property="og:image" content="https://thelazaruslabs.com/assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "NextFlick",
+    "url": "https://thelazaruslabs.com/nextflick",
+    "operatingSystem": "iOS, Android",
+    "applicationCategory": "UtilitiesApplication",
+    "description": "A movie and TV discovery app with personalised recommendations, an AI assistant, a watchlist, and streaming availability.",
+    "publisher": { "@type": "Organization", "name": "Lazarus Labs", "url": "https://thelazaruslabs.com/" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <link rel="icon" href="/assets/lazarus-labs-icon.png" />
+  <link rel="stylesheet" href="/assets/styles.css" />
+  <link rel="stylesheet" href="/assets/app-pages.css" />
+</head>
+<body>
+  <canvas id="starfield"></canvas>
+  <nav>
+    <a class="nav-brand" href="/">
+      <img src="/assets/lazarus-labs-icon.png" alt="Lazarus Labs" />
+      <span class="brand">Lazarus Labs</span>
+    </a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/projects" class="active">Work</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/contact">Contact</a>
+      <a href="/contact" class="nav-cta">Start a project</a>
+    </div>
+  </nav>
+
+  <main>
+    <header class="app-hero">
+      <img class="app-icon" src="/assets/apps/nextflick/icon.png" width="256" height="256" alt="NextFlick app icon" />
+      <span class="eyebrow">An app by Lazarus Labs</span>
+      <h1>NextFlick</h1>
+      <p class="tagline">Find your next watch, faster.</p>
+      <p class="pitch">
+        NextFlick is an all-in-one hub for discovering movies and TV shows that match your taste. Instead of
+        scrolling through several streaming apps, you get personalised recommendations, an AI assistant that
+        understands what you're in the mood for, a watchlist you can actually keep track of, and a clear answer
+        to the only question that matters: where can I stream it?
+      </p>
+      <p class="app-meta">iPhone &amp; iPad · Android · Free · Requires iOS 13 or later</p>
+      <div class="store-actions">
+        <a href="https://apps.apple.com/app/id6759226713" class="btn btn-primary" target="_blank" rel="noopener">
+          <span>Download on the App Store <span class="arrow">↗</span></span>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.lazaruslabs.nextflick" class="btn btn-ghost" target="_blank" rel="noopener">
+          <span>Get it on Google Play <span class="arrow">↗</span></span>
+        </a>
+      </div>
+    </header>
+
+    <section id="features" class="app-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Features</span>
+          <h2>Less scrolling. More watching.</h2>
+        </div>
+        <div class="feature-grid">
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.3 5.6 6 .5-4.6 3.9 1.4 5.9L12 15.8 6.9 18.9l1.4-5.9L3.7 9.1l6-.5z"/></svg></div>
+            <h3>Recommendations that learn</h3>
+            <p>Pick your favourite genres, actors and directors, and your suggestions get sharper the more you use the app.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></div>
+            <h3>JARVIS, your AI assistant</h3>
+            <p>Ask in plain language — “thrillers like Se7en”, “underrated comedies”, “recent sci-fi with strong reviews” — and get answers that account for mood and nuance.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M9 22h6"/></svg></div>
+            <h3>Where to stream it</h3>
+            <p>Every title shows which streaming services carry it, so you stop hopping between apps to find out.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/></svg></div>
+            <h3>Library and watchlist</h3>
+            <p>Save anything you want to watch later, and keep your films and shows organised in one place.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></div>
+            <h3>Discover, filtered your way</h3>
+            <p>Browse trending, popular and upcoming titles, then narrow by media type, genre, release year and minimum rating.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3"/><circle cx="4" cy="12" r="2"/><circle cx="12" cy="10" r="2"/><circle cx="20" cy="14" r="2"/></svg></div>
+            <h3>The Director's Chair</h3>
+            <p>Tune the taste signals behind your recommendations with a genre dial and your own lists of people to follow.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="screenshots" class="app-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Screenshots</span>
+          <h2>A look inside.</h2>
+        </div>
+        <p class="shots-hint">Swipe to see more →</p>
+        <div class="shots">
+          <figure>
+            <img src="/assets/apps/nextflick/screen-1.jpg" width="750" height="1623" loading="lazy" alt="NextFlick home screen showing trending and upcoming movies" />
+            <figcaption>Trending and upcoming, at a glance.</figcaption>
+          </figure>
+          <figure>
+            <img src="/assets/apps/nextflick/screen-7.jpg" width="750" height="1623" loading="lazy" alt="The JARVIS AI chat screen in NextFlick" />
+            <figcaption>Ask JARVIS for recommendations in plain language.</figcaption>
+          </figure>
+          <figure>
+            <img src="/assets/apps/nextflick/screen-6.jpg" width="750" height="1623" loading="lazy" alt="Discover filters for media type, genre, release year and minimum rating" />
+            <figcaption>Filter by type, genre, year and rating.</figcaption>
+          </figure>
+          <figure>
+            <img src="/assets/apps/nextflick/screen-2.jpg" width="750" height="1623" loading="lazy" alt="A film detail page with synopsis and a Save to Library button" />
+            <figcaption>Full details, and one tap to save it.</figcaption>
+          </figure>
+          <figure>
+            <img src="/assets/apps/nextflick/screen-3.jpg" width="750" height="1623" loading="lazy" alt="Trailers, cast and reviews on a title page" />
+            <figcaption>Trailers, cast and reviews.</figcaption>
+          </figure>
+          <figure>
+            <img src="/assets/apps/nextflick/screen-4.jpg" width="750" height="1623" loading="lazy" alt="My Library showing saved films and shows" />
+            <figcaption>Your library and watchlist.</figcaption>
+          </figure>
+          <figure>
+            <img src="/assets/apps/nextflick/screen-5.jpg" width="750" height="1623" loading="lazy" alt="The Director's Chair setup screen for taste signals" />
+            <figcaption>Set the taste signals behind your feed.</figcaption>
+          </figure>
+          <figure>
+            <img src="/assets/apps/nextflick/screen-8.jpg" width="750" height="1623" loading="lazy" alt="The genre dial, marking genres as loved, neutral or disliked" />
+            <figcaption>Love it, or never see it again.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section" style="padding-top:0;">
+      <div class="container">
+        <div class="cta-band" style="text-align:center; border:1px solid var(--line); border-radius:24px; padding:60px 24px; background:radial-gradient(600px 300px at 50% 0%, rgba(255,255,255,0.07), transparent 70%), linear-gradient(180deg, var(--panel-2), var(--panel));">
+          <h2 style="font-size:clamp(26px,5vw,40px);">Stop scrolling. Start watching.</h2>
+          <p style="max-width:460px; margin:0 auto 28px;">NextFlick is free to download on iOS and Android.</p>
+          <div class="store-actions">
+            <a href="https://apps.apple.com/app/id6759226713" class="btn btn-primary" target="_blank" rel="noopener">Download on the App Store <span class="arrow">↗</span></a>
+            <a href="https://play.google.com/store/apps/details?id=com.lazaruslabs.nextflick" class="btn btn-ghost" target="_blank" rel="noopener">Get it on Google Play <span class="arrow">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Apps</h4>
+          <a href="/nextflick" aria-current="page">NextFlick</a>
+          <a href="/gamearchive">GameArchive+</a>
+          <a href="/golf-caddie-plus">Golf Caddie+</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="/">Home</a>
+          <a href="/projects">Work</a>
+          <a href="/pricing">Pricing</a>
+          <a href="/contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal &amp; support</h4>
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+          <a href="/support">Support</a>
+          <a href="mailto:support@thelazaruslabs.com">support@thelazaruslabs.com</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Lazarus Labs. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+  <script src="/assets/main.js"></script>
+</body>
+</html>
