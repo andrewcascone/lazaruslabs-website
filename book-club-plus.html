@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Book Club+ — Find Your Next Great Read | Lazarus Labs</title>
+  <meta name="description" content="Book Club+ is a reading tracker and book recommendation app with an AI reading assistant, shelves, reading goals and stats. Free on iPhone, iPad and Android." />
+  <link rel="canonical" href="https://thelazaruslabs.com/book-club-plus" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#000000" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Lazarus Labs" />
+  <meta property="og:title" content="Book Club+ — Find your next great read." />
+  <meta property="og:description" content="Personal book recommendations, an AI reading assistant, and a library that keeps track of every book along the way." />
+  <meta property="og:url" content="https://thelazaruslabs.com/book-club-plus" />
+  <meta property="og:image" content="https://thelazaruslabs.com/assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Book Club+",
+    "url": "https://thelazaruslabs.com/book-club-plus",
+    "operatingSystem": "iOS, Android",
+    "applicationCategory": "BooksApplication",
+    "description": "A reading tracker and book recommendation app with an AI reading assistant, shelves, reading goals and stats.",
+    "publisher": { "@type": "Organization", "name": "Lazarus Labs", "url": "https://thelazaruslabs.com/" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <link rel="icon" href="/assets/lazarus-labs-icon.png" />
+  <link rel="stylesheet" href="/assets/styles.css" />
+  <link rel="stylesheet" href="/assets/app-pages.css" />
+</head>
+<body>
+  <canvas id="starfield"></canvas>
+  <nav class="app-nav">
+    <a class="nav-brand" href="/">
+      <img src="/assets/lazarus-labs-icon.png" alt="Lazarus Labs" />
+      <span class="brand">Lazarus Labs</span>
+    </a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="nav-links">
+      <a href="/book-club-plus" class="active" aria-current="page">Book Club+</a>
+      <a href="/book-club-plus/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="/support">Support</a>
+    </div>
+  </nav>
+
+  <main>
+    <header class="app-hero">
+      <img class="app-icon" src="/assets/apps/book-club-plus/icon.png" width="256" height="256" alt="Book Club+ app icon" />
+      <span class="eyebrow">An app by Lazarus Labs</span>
+      <h1>Book Club+</h1>
+      <p class="tagline">Find your next great read.</p>
+      <p class="pitch">
+        Book Club+ learns what you love from your shelves, ratings and favourite authors, then recommends books
+        picked just for you. Ask the AI reading assistant for exactly the kind of book you're in the mood for,
+        track your progress, and watch your reading life take shape. No account needed to start.
+      </p>
+      <p class="app-meta">iPhone &amp; iPad · Android · Free, with a one-time Remove Ads option</p>
+      <div class="store-actions">
+        <!--
+          Store buttons: hidden until the app is live.
+          To show them, replace APP_STORE_URL / PLAY_STORE_URL with the store links and remove this comment wrapper.
+          <a href="APP_STORE_URL" class="btn btn-primary" target="_blank" rel="noopener">
+            <span>Download on the App Store <span class="arrow">↗</span></span>
+          </a>
+          <a href="PLAY_STORE_URL" class="btn btn-ghost" target="_blank" rel="noopener">
+            <span>Get it on Google Play <span class="arrow">↗</span></span>
+          </a>
+        -->
+        <a href="#features" class="btn btn-ghost">See features</a>
+        <a href="#screenshots" class="btn btn-ghost">See screenshots</a>
+      </div>
+    </header>
+
+    <section id="features" class="app-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Features</span>
+          <h2>Every book, from “want to read” to “read”.</h2>
+        </div>
+        <div class="feature-grid">
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.3 5.6 6 .5-4.6 3.9 1.4 5.9L12 15.8 6.9 18.9l1.4-5.9L3.7 9.1l6-.5z"/></svg></div>
+            <h3>Personal recommendations</h3>
+            <p>A Home feed built around your taste — For You, Your Next Read, new releases in your favourite genres and more from authors you love. Every pick explains why it fits you.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></div>
+            <h3>AI reading assistant</h3>
+            <p>Describe a mood, a book you loved or how much time you have, and get real books you can open and save. Refine as you go — “shorter”, “something darker”, “more like the first one”.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="9" cy="9" r="1"/><circle cx="15" cy="15" r="1"/><circle cx="12" cy="12" r="1"/></svg></div>
+            <h3>Pick My Next Book</h3>
+            <p>Can't decide? Get one standout pick at a time, narrowed by genre, rating, length or mood. Start reading it, pass on it, or see another.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></div>
+            <h3>Discover</h3>
+            <p>Search by title, author or ISBN, browse genres and featured shelves, filter by year, length, language and rating, and see what other readers are adding, finishing and loving.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg></div>
+            <h3>Your library</h3>
+            <p>Want to Read, Reading and Read shelves plus Favourites. Track progress by page or percentage, rate in half stars, and keep private notes, quotes and questions for your book club.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+            <h3>Reading stats &amp; goals</h3>
+            <p>Set a yearly goal and see whether you're on schedule. Books and pages read, average rating, monthly activity, favourite genres, and optional daily reminders.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="screenshots" class="app-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Screenshots</span>
+          <h2>A look inside.</h2>
+        </div>
+        <p class="shots-hint">Swipe to see more →</p>
+        <div class="shots">
+          <figure>
+            <img src="/assets/apps/book-club-plus/screen-1.jpg" width="750" height="1629" loading="lazy" alt="Book Club+ home screen with Continue Reading, a yearly reading goal and Your Next Read" />
+            <figcaption>What are you in the mood to read?</figcaption>
+          </figure>
+          <figure>
+            <img src="/assets/apps/book-club-plus/screen-2.jpg" width="750" height="1629" loading="lazy" alt="The AI Chat screen recommending books similar to Piranesi" />
+            <figcaption>Ask the AI reading assistant.</figcaption>
+          </figure>
+          <figure>
+            <img src="/assets/apps/book-club-plus/screen-3.jpg" width="750" height="1629" loading="lazy" alt="Pick My Next Book showing a single recommended book" />
+            <figcaption>One standout pick at a time.</figcaption>
+          </figure>
+          <figure>
+            <img src="/assets/apps/book-club-plus/screen-4.jpg" width="750" height="1629" loading="lazy" alt="The Discover screen with genres and featured shelves" />
+            <figcaption>Browse genres and featured shelves.</figcaption>
+          </figure>
+          <figure>
+            <img src="/assets/apps/book-club-plus/screen-5.jpg" width="750" height="1629" loading="lazy" alt="A book detail page with description, rating and shelf options" />
+            <figcaption>Every book, with why it fits you.</figcaption>
+          </figure>
+          <figure>
+            <img src="/assets/apps/book-club-plus/screen-6.jpg" width="750" height="1629" loading="lazy" alt="The Library screen with Want to Read, Reading and Read shelves" />
+            <figcaption>Your shelves, lists and notes.</figcaption>
+          </figure>
+          <figure>
+            <img src="/assets/apps/book-club-plus/screen-7.jpg" width="750" height="1629" loading="lazy" alt="Reading stats showing books and pages read and monthly activity" />
+            <figcaption>Stats and goals for your reading year.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="app-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Free, with an ad-free option</span>
+          <h2>No subscription. Ever.</h2>
+          <p>Book Club+ is free and supported by ads. Remove Ads is a single, one-time purchase, and you can restore it on your other devices.</p>
+          <p>Start as a guest, then create a free account with Apple, Google or email to keep your library on all your devices. Read the full <a href="/book-club-plus/privacy">privacy policy</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Apps</h4>
+          <a href="/nextflick">NextFlick</a>
+          <a href="/gamearchive">GameArchive+</a>
+          <a href="/golf-caddie-plus">Golf Caddie+</a>
+          <a href="/book-club-plus" aria-current="page">Book Club+</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="/">Home</a>
+          <a href="/projects">Work</a>
+          <a href="/pricing">Pricing</a>
+          <a href="/contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal &amp; support</h4>
+          <a href="/book-club-plus/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+          <a href="/support">Support</a>
+          <a href="mailto:support@thelazaruslabs.com">support@thelazaruslabs.com</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Lazarus Labs. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+  <script src="/assets/main.js"></script>
+</body>
+</html>
