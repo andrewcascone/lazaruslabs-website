@@ -127,6 +127,7 @@
   font-size: clamp(19px, 4.6vw, 26px);
   color: var(--text);
   margin-bottom: 18px;
+  text-wrap: balance;
 }
 .app-hero .pitch { max-width: 620px; margin: 0 auto 28px; font-size: 17px; }
 .app-hero .hero-actions { margin-top: 0; }

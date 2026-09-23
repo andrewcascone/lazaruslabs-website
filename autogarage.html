@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>AutoGarage — Car Maintenance, Costs & AI Diagnostics | Lazarus Labs</title>
+  <meta name="description" content="AutoGarage is a car ownership app for iPhone and Android: maintenance forecasts, running costs, OBD-II diagnostics, market value and an AI assistant that knows your vehicle." />
+  <link rel="canonical" href="https://thelazaruslabs.com/autogarage" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#000000" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Lazarus Labs" />
+  <meta property="og:title" content="AutoGarage — AI-powered car ownership intelligence." />
+  <meta property="og:description" content="Health, maintenance, costs and next steps for your vehicles, with OBD-II diagnostics and an AI assistant that knows your car." />
+  <meta property="og:url" content="https://thelazaruslabs.com/autogarage" />
+  <meta property="og:image" content="https://thelazaruslabs.com/assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "AutoGarage",
+    "url": "https://thelazaruslabs.com/autogarage",
+    "operatingSystem": "iOS, Android",
+    "applicationCategory": "UtilitiesApplication",
+    "description": "A car ownership app with maintenance forecasting, running costs, OBD-II diagnostics, market value estimates and an AI assistant that knows your vehicle.",
+    "publisher": { "@type": "Organization", "name": "Lazarus Labs", "url": "https://thelazaruslabs.com/" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CAD" }
+  }
+  </script>
+  <link rel="icon" href="/assets/lazarus-labs-icon.png" />
+  <link rel="stylesheet" href="/assets/styles.css" />
+  <link rel="stylesheet" href="/assets/app-pages.css" />
+</head>
+<body>
+  <canvas id="starfield"></canvas>
+  <nav>
+    <a class="nav-brand" href="/">
+      <img src="/assets/lazarus-labs-icon.png" alt="Lazarus Labs" />
+      <span class="brand">Lazarus Labs</span>
+    </a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/projects" class="active">Work</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/contact">Contact</a>
+      <a href="/contact" class="nav-cta">Start a project</a>
+    </div>
+  </nav>
+
+  <main>
+    <header class="app-hero">
+      <!--
+        App icon: add assets/apps/autogarage/icon.png (256×256), then replace the .app-mark div below with:
+        <img class="app-icon" src="/assets/apps/autogarage/icon.png" width="256" height="256" alt="AutoGarage app icon" />
+      -->
+      <div class="app-mark" aria-hidden="true">
+        <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11l1.6-4.2A2 2 0 0 1 8.5 5.5h7a2 2 0 0 1 1.9 1.3L19 11"/><rect x="3" y="11" width="18" height="6" rx="2"/><path d="M6 17v2M18 17v2"/><circle cx="7.5" cy="14" r="1"/><circle cx="16.5" cy="14" r="1"/></svg>
+      </div>
+      <span class="eyebrow">An app by Lazarus Labs</span>
+      <h1>AutoGarage</h1>
+      <p class="tagline">AI-powered car ownership intelligence: health, maintenance, costs and next steps for your vehicles.</p>
+      <p class="pitch">
+        AutoGarage keeps everything about your cars in one place. It forecasts your next services and what
+        they'll cost, tracks what every kilometre really costs you, reads and explains trouble codes from an
+        OBD-II adapter, and answers questions with an AI assistant that knows your vehicle.
+      </p>
+      <p class="app-meta">iPhone · Android · Free, with Plus and Pro plans</p>
+      <div class="store-actions">
+        <!--
+          Store buttons: hidden until the app is live.
+          To show them, replace APP_STORE_URL / PLAY_STORE_URL with the store links and remove this comment wrapper.
+          <a href="APP_STORE_URL" class="btn btn-primary" target="_blank" rel="noopener">
+            <span>Download on the App Store <span class="arrow">↗</span></span>
+          </a>
+          <a href="PLAY_STORE_URL" class="btn btn-ghost" target="_blank" rel="noopener">
+            <span>Get it on Google Play <span class="arrow">↗</span></span>
+          </a>
+        -->
+        <a href="#features" class="btn btn-ghost">See features</a>
+        <a href="#plans" class="btn btn-ghost">See plans</a>
+      </div>
+    </header>
+
+    <section id="features" class="app-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Features</span>
+          <h2>Know your car. Plan what's next.</h2>
+        </div>
+        <div class="feature-grid">
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11l1.6-4.2A2 2 0 0 1 8.5 5.5h7a2 2 0 0 1 1.9 1.3L19 11"/><rect x="3" y="11" width="18" height="6" rx="2"/><path d="M6 17v2M18 17v2"/><circle cx="7.5" cy="14" r="1"/><circle cx="16.5" cy="14" r="1"/></svg></div>
+            <h3>Smart garage</h3>
+            <p>Add a car by decoding its VIN, scanning a barcode or picking it from the EPA catalogue, and get its official specs and MPG. Give it a custom paint colour and photos, and keep all your vehicles side by side.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.1l-5.8 5.8a1.8 1.8 0 0 0 2.5 2.5l5.8-5.8a4 4 0 0 0 5.1-5.4l-2.5 2.5-2.2-.5-.5-2.2z"/></svg></div>
+            <h3>Maintenance forecasting</h3>
+            <p>A data-driven service schedule with reminders, a service history that keeps parts and receipts, and cost forecasts for the next 3, 6 and 12 months.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+            <h3>Running costs</h3>
+            <p>Cost per km or mile, a fuel outlook based on your commute and local pump prices, spending by category and over time, and a 5-year cost of ownership.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></div>
+            <h3>AutoGarage AI</h3>
+            <p>Chat with an assistant that knows your vehicle. Photograph a warning light to find out what it means, diagnose a symptom, scan a receipt, check a repair quote or check your tires.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.9 18a8.5 8.5 0 1 1 14.2 0"/><path d="M12 14l4-5"/><circle cx="12" cy="14" r="1.2"/></svg></div>
+            <h3>OBD-II diagnostics</h3>
+            <p>Connect a Bluetooth or Wi-Fi ELM327 adapter to read trouble codes and see what they mean, check emissions readiness and watch live gauges. No adapter yet? Try the demo car.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2.5-6 5 12 2.5-6H21"/></svg></div>
+            <h3>Health intelligence</h3>
+            <p>Battery, charging, fuel-mixture and cooling trends, plus a predicted timeline of the maintenance coming up.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg></div>
+            <h3>Market value</h3>
+            <p>Trade-in, private-sale and dealer estimates for your car, with a curve showing its value over the next 5 years.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div>
+            <h3>PDF reports</h3>
+            <p>A vehicle history report to share when you sell, and an ownership cost report that shows what the car has cost you.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+            <h3>Nearby mechanics</h3>
+            <p>Find top-rated shops near you, ranked by rating and distance.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+            <h3>Glovebox</h3>
+            <p>Keep your car's documents in the app, with automatic reminders when they're due for renewal.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.2A5 5 0 0 1 21 19"/></svg></div>
+            <h3>Family sharing</h3>
+            <p>Share a car with family members, and choose whether each person can edit it or only view it.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Privacy</span>
+          <h2>Your garage, your data.</h2>
+        </div>
+        <ul class="trust-list">
+          <li><strong>Photos are never stored</strong>Photos you send to AutoGarage AI are analysed, then discarded.</li>
+          <li><strong>Export your data</strong>Take a copy of your data with you at any time.</li>
+          <li><strong>Delete your account</strong>Delete your account and all of its data, completely.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!--
+      Screenshots: drop the images in assets/apps/autogarage/ as screen-1.jpg, screen-2.jpg, …
+      (portrait, same aspect ratio as each other), then delete this comment wrapper and edit the
+      captions and alt text below. See /nextflick or /book-club-plus for the same section in use.
+      Also add a "See screenshots" button to the hero, as on /book-club-plus.
+
+    <section id="screenshots" class="app-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Screenshots</span>
+          <h2>A look inside.</h2>
+        </div>
+        <p class="shots-hint">Swipe to see more →</p>
+        <div class="shots">
+          <figure>
+            <img src="/assets/apps/autogarage/screen-1.jpg" width="750" height="1624" loading="lazy" alt="DESCRIBE THE SCREEN" />
+            <figcaption>CAPTION</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+    -->
+
+    <section id="plans" class="app-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Plans</span>
+          <h2>Start free. Upgrade as your garage grows.</h2>
+        </div>
+        <div class="plan-grid">
+          <div class="card plan">
+            <h3>Free</h3>
+            <div class="amount">$0</div>
+            <p>One car. Supported by ads.</p>
+          </div>
+          <div class="card plan featured">
+            <h3>Plus</h3>
+            <div class="amount">CA$7.99 <small>/ month</small></div>
+            <p class="alt">or CA$59.99 / year</p>
+            <p>Up to 3 cars.</p>
+          </div>
+          <div class="card plan">
+            <h3>Pro</h3>
+            <div class="amount">CA$14.99 <small>/ month</small></div>
+            <p class="alt">or CA$119.99 / year</p>
+            <p>Unlimited cars, OBD-II diagnostics, PDF reports and market value.</p>
+          </div>
+        </div>
+        <p class="plan-note">
+          Prices are in Canadian dollars; the App Store and Google Play show prices in your local currency. Plus
+          and Pro are auto-renewing subscriptions that you can cancel at any time in your App Store or Google Play
+          account. See the <a href="/terms">terms of service</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Apps</h4>
+          <a href="/nextflick">NextFlick</a>
+          <a href="/gamearchive">GameArchive+</a>
+          <a href="/golf-caddie-plus">Golf Caddie+</a>
+          <a href="/book-club-plus">Book Club+</a>
+          <a href="/autogarage" aria-current="page">AutoGarage</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="/">Home</a>
+          <a href="/projects">Work</a>
+          <a href="/pricing">Pricing</a>
+          <a href="/contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal &amp; support</h4>
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+          <a href="/support">Support</a>
+          <a href="mailto:support@thelazaruslabs.com">support@thelazaruslabs.com</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Lazarus Labs. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+  <script src="/assets/main.js"></script>
+</body>
+</html>
