@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Petello — Pet Health, Care & AI Companion | Lazarus Labs</title>
-  <meta name="description" content="Petello keeps your pet's health, care and records together." />
+  <title>Petello — Pet Health, Care &amp; AI Companion | Lazarus Labs</title>
+  <meta name="description" content="Petello keeps your pet’s health, care and records together: a health timeline, care routines, medication reminders, vet-ready reports and an AI Companion that knows your pet." />
   <link rel="canonical" href="https://thelazaruslabs.com/petello" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="theme-color" content="#000000" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Lazarus Labs" />
   <meta property="og:title" content="Petello — Everything your pet needs. All in one place." />
-  <meta property="og:description" content="Petello keeps your pet's health, care and records together." />
+  <meta property="og:description" content="Petello keeps your pet’s health, care and records together." />
   <meta property="og:url" content="https://thelazaruslabs.com/petello" />
   <meta property="og:image" content="https://thelazaruslabs.com/assets/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -21,18 +21,28 @@
     "@type": "MobileApplication",
     "name": "Petello",
     "url": "https://thelazaruslabs.com/petello",
+    "image": "https://thelazaruslabs.com/assets/apps/petello/icon.png",
     "operatingSystem": "iOS, Android",
     "applicationCategory": "LifestyleApplication",
-    "description": "Petello keeps your pet's health, care and records together.",
-    "publisher": { "@type": "Organization", "name": "Lazarus Labs", "url": "https://thelazaruslabs.com/" },
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CAD" }
+    "description": "Petello keeps your pet’s health, care and records together.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Lazarus Labs",
+      "url": "https://thelazaruslabs.com/"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "CAD"
+    }
   }
   </script>
   <link rel="icon" href="/assets/lazarus-labs-icon.png" />
   <link rel="stylesheet" href="/assets/styles.css" />
   <link rel="stylesheet" href="/assets/app-pages.css" />
+  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
 </head>
-<body>
+<body style="--tint: 86, 176, 140;">
   <canvas id="starfield"></canvas>
   <nav class="app-nav">
     <a class="nav-brand" href="/">
@@ -41,6 +51,7 @@
     </a>
     <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
     <div class="nav-links">
+      <a href="/projects">Work</a>
       <a href="/petello" class="active" aria-current="page">Petello</a>
       <a href="/petello/privacy">Privacy</a>
       <a href="/petello/terms">Terms</a>
@@ -49,195 +60,154 @@
   </nav>
 
   <main>
-    <header class="app-hero">
-      <!--
-        PETELLO APP ICON PLACEHOLDER
-        The paw mark below stands in until the real icon arrives. Resize the 1024×1024 PNG to 256×256
-        (like the other apps' icons), save it as assets/apps/petello/icon.png, then replace the .app-mark div below with:
-        <img class="app-icon" src="/assets/apps/petello/icon.png" width="256" height="256" alt="Petello app icon" />
-      -->
-      <div class="app-mark" aria-hidden="true">
-        <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="6.5" cy="10.5" r="1.7"/><circle cx="10" cy="6.5" r="1.7"/><circle cx="14" cy="6.5" r="1.7"/><circle cx="17.5" cy="10.5" r="1.7"/><path d="M12 12c-2.6 0-5 2.9-5 5.3 0 1.5 1.1 2.4 2.5 2.4 1 0 1.7-.5 2.5-.5s1.5.5 2.5.5c1.4 0 2.5-.9 2.5-2.4 0-2.4-2.4-5.3-5-5.3z"/></svg>
-      </div>
-      <span class="eyebrow">An app by Lazarus Labs</span>
-      <h1>Petello</h1>
-      <p class="tagline">Everything your pet needs. All in one place.</p>
-      <p class="pitch">
-        Petello keeps your pet's health, care and records together. Log symptoms, weights and vet visits, never
-        miss a dose or a vaccine, see how they're really doing over time, and ask an AI Companion that knows your
-        pet, with facts kept apart from possibilities and clear advice on when to call your vet.
-      </p>
-      <p class="app-meta">iPhone · Android · Free, with Premium</p>
-      <div class="store-actions">
-        <!--
-          Store buttons: hidden until the app is live.
-          To show them, replace APP_STORE_URL / PLAY_STORE_URL with the store links and remove this comment wrapper.
-          <a href="APP_STORE_URL" class="btn btn-primary" target="_blank" rel="noopener">
-            <span>Download on the App Store <span class="arrow">↗</span></span>
-          </a>
-          <a href="PLAY_STORE_URL" class="btn btn-ghost" target="_blank" rel="noopener">
-            <span>Get it on Google Play <span class="arrow">↗</span></span>
-          </a>
-        -->
-        <a href="#features" class="btn btn-ghost">See features</a>
-        <a href="#plans" class="btn btn-ghost">See plans</a>
+    <header class="product-hero">
+      <div class="container">
+        <div class="product-hero-copy">
+          <a class="back-link" href="/projects#apps"><span aria-hidden="true">←</span> All work</a>
+          <span class="eyebrow">An app by Lazarus Labs</span>
+          <h1>Petello</h1>
+          <p class="tagline">Everything your pet needs. All in one place.</p>
+          <p class="pitch">Log symptoms, weights and vet visits, never miss a dose or a vaccine, see how they’re really doing over time, and ask an AI Companion that knows your pet.</p>
+          <div class="store-row">
+            <a class="store-badge is-soon" aria-disabled="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#00A0FF" d="M1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924z"/><path fill="#00D26A" d="M13.544 10.989l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973z"/><path fill="#FF3A44" d="M13.544 13.056l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/><path fill="#FFC400" d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594z"/></svg><span><small>Coming soon to</small><b>Google Play</b></span></a>
+            <a class="store-badge is-soon" aria-disabled="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span><small>Coming soon to the</small><b>App Store</b></span></a>
+          </div>
+          <p class="app-meta">iPhone · Android · Free, with Premium</p>
+        </div>
+        <div class="product-hero-visual device-stage icon-only">
+          <img class="app-icon" src="/assets/apps/petello/icon.png" width="256" height="256" alt="Petello app icon" />
+        </div>
       </div>
     </header>
 
-    <section id="features" class="app-section">
+    <section class="chapter" id="health">
       <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Features</span>
-          <h2>Everything your pet needs. All in one place.</h2>
+        <div class="chapter-copy reveal">
+          <span class="chapter-kicker"><b>01</b> Health</span>
+          <h2>Their whole health story, in one timeline.</h2>
+          <p>Symptoms, vet visits, vaccines, weights and notes in one timeline, each labelled by where it came from: you, your vet or a record.</p>
         </div>
-        <div class="feature-grid">
-          <div class="card">
-            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v2M6 9v6M6 19v2"/><circle cx="6" cy="7" r="2"/><circle cx="6" cy="17" r="2"/><path d="M11 7h9M11 12h6M11 17h9"/></svg></div>
-            <h3>Health timeline</h3>
-            <p>Symptoms, vet visits, vaccines, weights and notes in one timeline, each labelled by where it came from: you, your vet or a record.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 12.5l2.8 2.8L16.5 9"/></svg></div>
-            <h3>Daily check-ins</h3>
-            <p>A ten-second check-in for appetite, energy, mood, stool and water, made for each species, with streaks and trends that build a picture your vet can use.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l3 3-3 3"/><path d="M4 11V9a4 4 0 0 1 4-4h12"/><path d="M7 22l-3-3 3-3"/><path d="M20 13v2a4 4 0 0 1-4 4H4"/></svg></div>
-            <h3>Care routines</h3>
-            <p>Feeding, walks, grooming, cleaning and medication reminders suggested for each species. Tick them off right from the notification.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><g transform="rotate(-45 12 12)"><rect x="3" y="8.5" width="18" height="7" rx="3.5"/><path d="M12 8.5v7"/></g></svg></div>
-            <h3>Medications</h3>
-            <p>Doses exactly as prescribed, supply left, low-supply and refill alerts, and how consistently each dose was given.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
-            <h3>Vaccines and preventives</h3>
-            <p>Up to date, due soon or overdue at a glance, with reminders from the dates your vet gives you.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
-            <h3>Trends</h3>
-            <p>Weight with goals, wellness, symptoms, care consistency and spending, drawn from your own records.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></svg></div>
-            <h3>Petello Companion</h3>
-            <p>An AI pet-care assistant that knows your pet's records. It keeps facts apart from possibilities, tells you when something needs a vet now, and never diagnoses. With Premium, show it a photo of what you're seeing.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><path d="M8 9h8M8 12h8M8 15h5"/></svg></div>
-            <h3>Records and smart filing</h3>
-            <p>Scan or import vet records, lab results, certificates and invoices. With Premium, Petello reads them into timeline entries, reminders and expenses, and you check every detail first.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div>
-            <h3>Vet-ready reports</h3>
-            <p>A polished PDF of history, medications, vaccines and trends for any visit, plus a visit brief with questions to ask. A one-page summary, a sitter care sheet and an emergency card are free.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M7.5 14h9M7.5 17.5h5"/></svg></div>
-            <h3>Weekly digest</h3>
-            <p>A plain-language summary of the week from what you logged, and what's worth watching.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v9M7.5 12h9"/></svg></div>
-            <h3>Emergency hub</h3>
-            <p>Call your vet, find an emergency hospital that's open now, reach animal poison control, and check the warning signs that mean “go now”.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12a1 1 0 0 1 1 1v10H5V4a1 1 0 0 1 1-1z"/><circle cx="12" cy="8.5" r="2.5"/><path d="M5 14v6M8.5 14v6M12 14v6M15.5 14v6M19 14v6"/></svg></div>
-            <h3>Lost-pet mode</h3>
-            <p>A print-ready poster with tear-off tabs and a scan-to-call code, plus a checklist of what to do first.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><path d="M12 7.5v5M9.5 10h5"/></svg></div>
-            <h3>Find a vet</h3>
-            <p>Clinics and emergency hospitals near you, with hours, phone numbers and directions.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-2-1.5-2 1.5-2-1.5-2 1.5-2-1.5L6 21z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></div>
-            <h3>Expenses</h3>
-            <p>Vet bills, food, insurance and supplies by pet and by month.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.2A5 5 0 0 1 21 19"/></svg></div>
-            <h3>Household sharing</h3>
-            <p>Invite family and sitters so everyone follows the same routines and sees who fed, walked or medicated, with roles for family members and caregivers.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6.5" cy="10.5" r="1.7"/><circle cx="10" cy="6.5" r="1.7"/><circle cx="14" cy="6.5" r="1.7"/><circle cx="17.5" cy="10.5" r="1.7"/><path d="M12 12c-2.6 0-5 2.9-5 5.3 0 1.5 1.1 2.4 2.5 2.4 1 0 1.7-.5 2.5-.5s1.5.5 2.5.5c1.4 0 2.5-.9 2.5-2.4 0-2.4-2.4-5.3-5-5.3z"/></svg></div>
-            <h3>Every kind of pet</h3>
-            <p>Dogs, cats, birds, rabbits, hamsters, guinea pigs, ferrets, reptiles, fish, horses and more, each with care suggestions made for them.</p>
-          </div>
+        <div class="chapter-visual reveal" data-delay="1">
+          <ul class="feature-panel">
+            <li><div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 12.5l2.8 2.8L16.5 9"/></svg></div><div><h3>Daily check-ins</h3><p>Ten seconds for appetite, energy, mood, stool and water, made for each species, with streaks and trends your vet can use.</p></div></li>
+            <li><div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><div><h3>Vaccines and preventives</h3><p>Up to date, due soon or overdue at a glance, with reminders from the dates your vet gives you.</p></div></li>
+            <li><div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div><div><h3>Trends and spending</h3><p>Weight with goals, wellness, symptoms and care consistency — plus vet bills, food, insurance and supplies by pet and by month.</p></div></li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section class="app-section">
+    <section class="chapter flip" id="care">
       <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Privacy</span>
-          <h2>Your pet's records, on your terms.</h2>
+        <div class="chapter-copy reveal">
+          <span class="chapter-kicker"><b>02</b> Care</span>
+          <h2>Never miss a dose, a walk or a vaccine.</h2>
+          <p>Feeding, walks, grooming, cleaning and medication reminders, suggested for each species. Tick them off right from the notification.</p>
         </div>
-        <ul class="trust-list">
-          <li><strong>Records stay on your phone</strong>Petello works without an account. Your pets' records leave your phone only if you turn on backup and sync, or use a feature that needs it.</li>
-          <li><strong>Photos aren't stored</strong>Photos and documents you ask Petello's AI to read are analysed, then discarded.</li>
+        <div class="chapter-visual reveal" data-delay="1">
+          <ul class="feature-panel">
+            <li><div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g transform="rotate(-45 12 12)"><rect x="3" y="8.5" width="18" height="7" rx="3.5"/><path d="M12 8.5v7"/></g></svg></div><div><h3>Medications</h3><p>Doses exactly as prescribed, supply left, refill alerts, and how consistently each dose was given.</p></div></li>
+            <li><div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.2A5 5 0 0 1 21 19"/></svg></div><div><h3>Household sharing</h3><p>Invite family and sitters so everyone follows the same routines and sees who fed, walked or medicated.</p></div></li>
+            <li><div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6.5" cy="10.5" r="1.7"/><circle cx="10" cy="6.5" r="1.7"/><circle cx="14" cy="6.5" r="1.7"/><circle cx="17.5" cy="10.5" r="1.7"/><path d="M12 12c-2.6 0-5 2.9-5 5.3 0 1.5 1.1 2.4 2.5 2.4 1 0 1.7-.5 2.5-.5s1.5.5 2.5.5c1.4 0 2.5-.9 2.5-2.4 0-2.4-2.4-5.3-5-5.3z"/></svg></div><div><h3>Every kind of pet</h3><p>Dogs, cats, birds, rabbits, reptiles, fish, horses and more, each with care suggestions made for them.</p></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter" id="companion">
+      <div class="container">
+        <div class="chapter-copy reveal">
+          <span class="chapter-kicker"><b>03</b> Petello Companion</span>
+          <h2>An AI that knows your pet.</h2>
+          <p>Ask about your pet and get answers that use their records, keep facts apart from possibilities, and tell you clearly when something needs a vet now. It never diagnoses — and with Premium, you can show it a photo of what you’re seeing.</p>
+        </div>
+        <div class="chapter-visual reveal" data-delay="1">
+          <ul class="feature-panel">
+            <li><div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><path d="M8 9h8M8 12h8M8 15h5"/></svg></div><div><h3>Records and smart filing</h3><p>Scan vet records, lab results and invoices. With Premium, Petello reads them into entries, reminders and expenses — and you check every detail first.</p></div></li>
+            <li><div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M7.5 14h9M7.5 17.5h5"/></svg></div><div><h3>Weekly digest</h3><p>A plain-language summary of the week from what you logged, and what’s worth watching.</p></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter flip" id="vet">
+      <div class="container">
+        <div class="chapter-copy reveal">
+          <span class="chapter-kicker"><b>04</b> At the vet, and in a hurry</span>
+          <h2>Prepared for every visit — and the worst days.</h2>
+          <p>A polished PDF of history, medications, vaccines and trends for any visit, plus a visit brief with questions to ask. A one-page summary, a sitter care sheet and an emergency card are free.</p>
+        </div>
+        <div class="chapter-visual reveal" data-delay="1">
+          <ul class="feature-panel">
+            <li><div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v9M7.5 12h9"/></svg></div><div><h3>Emergency hub</h3><p>Call your vet, find an emergency hospital that’s open now, reach animal poison control, and check the signs that mean “go now”.</p></div></li>
+            <li><div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v10H5V4a1 1 0 0 1 1-1z"/><circle cx="12" cy="8.5" r="2.5"/><path d="M5 14v6M8.5 14v6M12 14v6M15.5 14v6M19 14v6"/></svg></div><div><h3>Lost-pet mode</h3><p>A print-ready poster with tear-off tabs and a scan-to-call code, plus a checklist of what to do first.</p></div></li>
+            <li><div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><path d="M12 7.5v5M9.5 10h5"/></svg></div><div><h3>Find a vet</h3><p>Clinics and emergency hospitals near you, with hours, phone numbers and directions.</p></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section" id="privacy">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Privacy</span>
+          <h2>Your pet’s records, on your terms.</h2>
+        </div>
+        <ul class="trust-list reveal">
+          <li><strong>Records stay on your phone</strong>Petello works without an account. Your pets’ records leave your phone only if you turn on backup and sync, or use a feature that needs it.</li>
+          <li><strong>Photos aren’t stored</strong>Photos and documents you ask Petello’s AI to read are analysed, then discarded.</li>
           <li><strong>Export or delete anytime</strong>Take a copy of your data with you, or delete it from inside the app.</li>
         </ul>
         <p class="plan-note">Read the full <a href="/petello/privacy">privacy policy</a>.</p>
       </div>
     </section>
 
-    <!--
-      Screenshots: drop the images in assets/apps/petello/ as screen-1.jpg, screen-2.jpg, …
-      (portrait, same aspect ratio as each other), then delete this comment wrapper and edit the
-      captions and alt text below. See /nextflick or /book-club-plus for the same section in use.
-      Also add a "See screenshots" button to the hero, as on /book-club-plus.
-
-    <section id="screenshots" class="app-section">
+    <section class="app-section" id="plans">
       <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Screenshots</span>
-          <h2>A look inside.</h2>
-        </div>
-        <p class="shots-hint">Swipe to see more →</p>
-        <div class="shots">
-          <figure>
-            <img src="/assets/apps/petello/screen-1.jpg" width="750" height="1624" loading="lazy" alt="DESCRIBE THE SCREEN" />
-            <figcaption>CAPTION</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-    -->
-
-    <section id="plans" class="app-section">
-      <div class="container">
-        <div class="section-head">
+        <div class="section-head reveal">
           <span class="eyebrow">Plans</span>
-          <h2>Start free. Upgrade when you're ready.</h2>
+          <h2>Start free. Upgrade when you’re ready.</h2>
         </div>
+        <!-- Prices to confirm against App Store Connect and Google Play; add the free trial here if there is one. -->
         <div class="plan-grid plan-grid-2">
-          <div class="card plan">
+          <div class="card plan reveal" data-delay="1">
             <h3>Free</h3>
             <div class="amount">$0</div>
             <p>Up to 2 pets, 10 Companion questions a day, and the last 30 days of trends. Supported by ads.</p>
           </div>
-          <!-- Prices to confirm against App Store Connect and Google Play; add the free trial here if there is one. -->
-          <div class="card plan featured">
+          <div class="card plan featured reveal" data-delay="2">
             <h3>Premium</h3>
             <div class="amount">CA$6.99 <small>/ month</small></div>
             <p class="alt">or CA$59.99 / year</p>
             <p>Unlimited pets and Companion, photo analysis, smart document filing, full-history trends, vet-ready reports and visit briefs, the weekly digest, spending insights, household sharing, and no ads.</p>
           </div>
         </div>
-        <p class="plan-note">
-          Prices are in Canadian dollars; the App Store and Google Play show prices in your local currency. Premium
-          is an auto-renewing subscription that you can cancel at any time in your App Store or Google Play
-          account. See the <a href="/petello/terms">terms of service</a>.
-        </p>
+        <p class="plan-note">Prices are in Canadian dollars; the App Store and Google Play show prices in your local currency. Premium is an auto-renewing subscription that you can cancel at any time in your App Store or Google Play account. See the <a href="/petello/terms">terms of service</a>.</p>
+      </div>
+    </section>
+
+    <section class="app-outro">
+      <div class="container">
+        <div class="outro-card reveal">
+          <div class="outro-get">
+            <img class="app-icon" src="/assets/apps/petello/icon.png" width="256" height="256" loading="lazy" alt="" />
+            <h2>Get Petello</h2>
+            <p>Coming soon to the App Store and Google Play.</p>
+            <div class="store-row">
+              <a class="store-badge is-soon" aria-disabled="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#00A0FF" d="M1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924z"/><path fill="#00D26A" d="M13.544 10.989l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973z"/><path fill="#FF3A44" d="M13.544 13.056l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/><path fill="#FFC400" d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594z"/></svg><span><small>Coming soon to</small><b>Google Play</b></span></a>
+              <a class="store-badge is-soon" aria-disabled="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span><small>Coming soon to the</small><b>App Store</b></span></a>
+            </div>
+          </div>
+          <div class="outro-built">
+            <span class="eyebrow">Built by Lazarus Labs</span>
+            <dl>
+              <div><dt>Platforms</dt><dd>iPhone and Android</dd></div>
+              <div><dt>Built with</dt><dd>Flutter · Firebase · RevenueCat</dd></div>
+              <div><dt>Highlights</dt><dd>Works offline without an account, AI that reads vet documents, vet-ready PDF reports</dd></div>
+            </dl>
+            <a class="text-link" href="/contact">Have an app in mind? Start a project <span class="arrow">→</span></a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -246,25 +216,28 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
+          <h4>Apps</h4>
+          <a href="/autogarage">AutoGarage</a>
+          <a href="/golf-caddie-plus">Golf Caddie+</a>
+          <a href="/lock-in-trivia">Lock-In Trivia</a>
+          <a href="/book-club-plus">Book Club+</a>
+          <a href="/nextflick">NextFlick</a>
+          <a href="/gamearchive">GameArchive+</a>
+          <a href="/petello" aria-current="page">Petello</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="/">Home</a>
+          <a href="/projects">Work</a>
+          <a href="/pricing">Pricing</a>
+          <a href="/contact">Contact</a>
+        </div>
+        <div class="footer-col">
           <h4>Petello</h4>
-          <a href="/petello" aria-current="page">About the app</a>
           <a href="/petello/privacy">Privacy Policy</a>
           <a href="/petello/terms">Terms of Service</a>
           <a href="/support">Support</a>
-        </div>
-        <div class="footer-col">
-          <h4>More apps</h4>
-          <a href="/nextflick">NextFlick</a>
-          <a href="/gamearchive">GameArchive+</a>
-          <a href="/golf-caddie-plus">Golf Caddie+</a>
-          <a href="/book-club-plus">Book Club+</a>
-          <a href="/autogarage">AutoGarage</a>
-        </div>
-        <div class="footer-col">
-          <h4>Contact</h4>
           <a href="mailto:support@thelazaruslabs.com">support@thelazaruslabs.com</a>
-          <a href="/">Lazarus Labs</a>
-          <a href="/projects">Our work</a>
         </div>
       </div>
       <div class="footer-bottom">
