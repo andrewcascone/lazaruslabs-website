@@ -40,142 +40,185 @@
   </script>
   <link rel="icon" href="/assets/lazarus-labs-icon.png" />
   <link rel="stylesheet" href="/assets/styles.css" />
-  <link rel="stylesheet" href="/assets/app-pages.css" />
-  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+  <link rel="stylesheet" href="/assets/app-pages.css?v=3" />
+  <noscript><style>.reveal { opacity: 1; transform: none; } .tour-panel { grid-template-rows: 1fr; }</style></noscript>
 </head>
 <body style="--tint: 40, 170, 235;">
   <canvas id="starfield"></canvas>
-  <nav class="app-nav">
-    <a class="nav-brand" href="/">
-      <img src="/assets/lazarus-labs-icon.png" alt="Lazarus Labs" />
-      <span class="brand">Lazarus Labs</span>
-    </a>
+  <nav class="app-nav product-nav">
+    <div class="product-nav-id">
+      <a class="nav-brand" href="/">
+        <img src="/assets/lazarus-labs-icon.png" alt="Lazarus Labs" />
+        <span class="brand">Lazarus Labs</span>
+      </a>
+      <span class="nav-sep" aria-hidden="true"></span>
+      <a class="nav-app" href="#top"><img src="/assets/apps/nextflick/icon.png" width="28" height="28" alt="" />NextFlick</a>
+    </div>
     <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
     <div class="nav-links">
-      <a href="/projects">Work</a>
-      <a href="/nextflick" class="active" aria-current="page">NextFlick</a>
+      <a href="#features">Features</a>
       <a href="/privacy">Privacy</a>
-      <a href="/terms">Terms</a>
       <a href="/support">Support</a>
+      <a href="#get" class="nav-cta">Get the app</a>
     </div>
   </nav>
 
   <main>
-    <header class="product-hero">
+    <header class="ap-hero" id="top">
       <div class="container">
-        <div class="product-hero-copy">
-          <a class="back-link" href="/projects#apps"><span aria-hidden="true">←</span> All work</a>
+        <div class="ap-hero-top"><a class="back-pill" href="/projects#apps"><span aria-hidden="true">←</span> All work</a></div>
+        <div class="ap-hero-copy">
           <img class="app-icon" src="/assets/apps/nextflick/icon.png" width="256" height="256" alt="NextFlick app icon" />
           <span class="eyebrow">An app by Lazarus Labs</span>
           <h1>NextFlick</h1>
           <p class="tagline">Find your next watch, faster.</p>
           <p class="pitch">Personalised film and TV recommendations, an AI assistant that gets your mood, a watchlist you’ll actually keep — and a clear answer to the only question that matters: where can I stream it?</p>
-          <div class="store-row">
+          <div class="store-row center">
             <a class="store-badge" href="https://apps.apple.com/app/id6759226713" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
             <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.lazaruslabs.nextflick" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#00A0FF" d="M1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924z"/><path fill="#00D26A" d="M13.544 10.989l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973z"/><path fill="#FF3A44" d="M13.544 13.056l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/><path fill="#FFC400" d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594z"/></svg><span><small>Get it on</small><b>Google Play</b></span></a>
           </div>
           <p class="app-meta">iPhone &amp; iPad · Android · Free · Requires iOS 13 or later</p>
         </div>
-        <div class="product-hero-visual device-stage duo">
-          <figure class="phone"><img src="/assets/apps/nextflick/screen-2.jpg" width="750" height="1623" fetchpriority="high" decoding="async" alt="A film page for Project Hail Mary saved to the library" /></figure>
-          <figure class="phone"><img src="/assets/apps/nextflick/screen-1.jpg" width="750" height="1623" fetchpriority="high" decoding="async" alt="NextFlick home screen with trending and upcoming movies" /></figure>
+        <div class="ap-stage lit">
+          <div class="ap-stage-devices">
+            <figure class="phone side"><img src="/assets/apps/nextflick/screen-2.jpg" width="750" height="1623" fetchpriority="high" decoding="async" alt="A film page for Project Hail Mary saved to the library" /></figure>
+            <figure class="phone main"><img src="/assets/apps/nextflick/screen-1.jpg" width="750" height="1623" fetchpriority="high" decoding="async" alt="NextFlick home screen with trending and upcoming movies" /></figure>
+            <figure class="phone side"><img src="/assets/apps/nextflick/screen-4.jpg" width="750" height="1623" fetchpriority="high" decoding="async" alt="My Library showing saved films and shows" /></figure>
+          </div>
         </div>
       </div>
     </header>
 
-    <section class="chapter" id="taste">
+    <section class="ap-section" id="features">
       <div class="container">
-        <div class="chapter-copy reveal">
-          <span class="chapter-kicker"><b>01</b> Your taste</span>
-          <h2>Recommendations that learn.</h2>
-          <p>Pick your favourite genres, actors and directors, and your suggestions get sharper the more you use the app.</p>
-          <ul class="ticks">
-            <li><strong>The Director’s Chair</strong> — tune the taste signals behind your feed</li>
-            <li><strong>The genre dial</strong> — love it, stay neutral, or never see it again</li>
-            <li>Follow the people whose work you love</li>
-          </ul>
+        <div class="ap-head reveal">
+          <span class="eyebrow">Features</span>
+          <h2>Less scrolling. More watching.</h2>
         </div>
-        <div class="chapter-visual device-stage duo reveal" data-delay="1">
-          <figure class="phone"><img src="/assets/apps/nextflick/screen-5.jpg" width="750" height="1623" loading="lazy" decoding="async" alt="The Director’s Chair setup screen for genres and people" /></figure>
-          <figure class="phone"><img src="/assets/apps/nextflick/screen-8.jpg" width="750" height="1623" loading="lazy" decoding="async" alt="The genre dial, marking genres as loved, neutral or disliked" /></figure>
-        </div>
-      </div>
-    </section>
+        <div class="tour reveal">
+          <div class="tour-list">
+            <div class="tour-item is-active" id="taste">
+              <div class="tour-copy">
+                <span class="tour-progress" aria-hidden="true"><i></i></span>
+                <button class="tour-tab" type="button" aria-expanded="true" aria-controls="taste-panel">
+                  <span class="tour-kicker">01 · Your taste</span>
+                  <span class="tour-title">Recommendations that learn.</span>
+                </button>
+                <div class="tour-panel" id="taste-panel">
+                  <div>
+                  <p>Pick your favourite genres, actors and directors, and your suggestions get sharper the more you use the app.</p>
+                  <ul class="ticks">
+                    <li><strong>The Director’s Chair</strong> — tune the taste signals behind your feed</li>
+                    <li><strong>The genre dial</strong> — love it, stay neutral, or never see it again</li>
+                    <li>Follow the people whose work you love</li>
+                  </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="tour-visual lit">
+              <div class="duo">
+                <figure class="phone"><img src="/assets/apps/nextflick/screen-5.jpg" width="750" height="1623" loading="lazy" decoding="async" alt="The Director’s Chair setup screen for genres and people" /></figure>
+                <figure class="phone"><img src="/assets/apps/nextflick/screen-8.jpg" width="750" height="1623" loading="lazy" decoding="async" alt="The genre dial, marking genres as loved, neutral or disliked" /></figure>
+              </div>
+              </div>
+            </div>
 
-    <section class="chapter flip" id="jarvis">
-      <div class="container">
-        <div class="chapter-copy reveal">
-          <span class="chapter-kicker"><b>02</b> JARVIS</span>
-          <h2>Ask for exactly what you’re in the mood for.</h2>
-          <p>JARVIS, the built-in AI assistant, takes plain-language requests — “thrillers like Se7en”, “underrated comedies”, “recent sci-fi with strong reviews” — and answers with mood and nuance.</p>
-          <ul class="ticks">
-            <li>Recommendations, insights and hidden gems</li>
-            <li>Actor and director information on demand</li>
-          </ul>
-        </div>
-        <div class="chapter-visual device-stage reveal" data-delay="1">
-          <figure class="phone"><img src="/assets/apps/nextflick/screen-7.jpg" width="750" height="1623" loading="lazy" decoding="async" alt="The JARVIS AI chat screen in NextFlick" /></figure>
-        </div>
-      </div>
-    </section>
+            <div class="tour-item" id="jarvis">
+              <div class="tour-copy">
+                <span class="tour-progress" aria-hidden="true"><i></i></span>
+                <button class="tour-tab" type="button" aria-expanded="false" aria-controls="jarvis-panel">
+                  <span class="tour-kicker">02 · JARVIS</span>
+                  <span class="tour-title">Ask for exactly what you’re in the mood for.</span>
+                </button>
+                <div class="tour-panel" id="jarvis-panel">
+                  <div>
+                  <p>JARVIS, the built-in AI assistant, takes plain-language requests — “thrillers like Se7en”, “underrated comedies”, “recent sci-fi with strong reviews” — and answers with mood and nuance.</p>
+                  <ul class="ticks">
+                    <li>Recommendations, insights and hidden gems</li>
+                    <li>Actor and director information on demand</li>
+                  </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="tour-visual lit">
+              <figure class="phone"><img src="/assets/apps/nextflick/screen-7.jpg" width="750" height="1623" loading="lazy" decoding="async" alt="The JARVIS AI chat screen in NextFlick" /></figure>
+              </div>
+            </div>
 
-    <section class="chapter" id="discover">
-      <div class="container">
-        <div class="chapter-copy reveal">
-          <span class="chapter-kicker"><b>03</b> Discover</span>
-          <h2>Discover, filtered your way.</h2>
-          <p>Browse trending, popular and upcoming titles, then narrow them down by media type, genre, release year and minimum rating.</p>
-        </div>
-        <div class="chapter-visual device-stage reveal" data-delay="1">
-          <figure class="phone"><img src="/assets/apps/nextflick/screen-6.jpg" width="750" height="1623" loading="lazy" decoding="async" alt="Discover filters for media type, genre, release year and minimum rating" /></figure>
-        </div>
-      </div>
-    </section>
+            <div class="tour-item" id="discover">
+              <div class="tour-copy">
+                <span class="tour-progress" aria-hidden="true"><i></i></span>
+                <button class="tour-tab" type="button" aria-expanded="false" aria-controls="discover-panel">
+                  <span class="tour-kicker">03 · Discover</span>
+                  <span class="tour-title">Discover, filtered your way.</span>
+                </button>
+                <div class="tour-panel" id="discover-panel">
+                  <div>
+                  <p>Browse trending, popular and upcoming titles, then narrow them down by media type, genre, release year and minimum rating.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="tour-visual lit">
+              <figure class="phone"><img src="/assets/apps/nextflick/screen-6.jpg" width="750" height="1623" loading="lazy" decoding="async" alt="Discover filters for media type, genre, release year and minimum rating" /></figure>
+              </div>
+            </div>
 
-    <section class="chapter flip" id="titles">
-      <div class="container">
-        <div class="chapter-copy reveal">
-          <span class="chapter-kicker"><b>04</b> Every title</span>
-          <h2>Everything you need to decide.</h2>
-          <p>Trailers, cast and reviews on every title — and which streaming services carry it, so you stop hopping between apps to find out.</p>
-        </div>
-        <div class="chapter-visual device-stage reveal" data-delay="1">
-          <figure class="phone"><img src="/assets/apps/nextflick/screen-3.jpg" width="750" height="1623" loading="lazy" decoding="async" alt="Trailers, cast and reviews on a title page" /></figure>
-        </div>
-      </div>
-    </section>
+            <div class="tour-item" id="titles">
+              <div class="tour-copy">
+                <span class="tour-progress" aria-hidden="true"><i></i></span>
+                <button class="tour-tab" type="button" aria-expanded="false" aria-controls="titles-panel">
+                  <span class="tour-kicker">04 · Every title</span>
+                  <span class="tour-title">Everything you need to decide.</span>
+                </button>
+                <div class="tour-panel" id="titles-panel">
+                  <div>
+                  <p>Trailers, cast and reviews on every title — and which streaming services carry it, so you stop hopping between apps to find out.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="tour-visual lit">
+              <figure class="phone"><img src="/assets/apps/nextflick/screen-3.jpg" width="750" height="1623" loading="lazy" decoding="async" alt="Trailers, cast and reviews on a title page" /></figure>
+              </div>
+            </div>
 
-    <section class="chapter" id="library">
-      <div class="container">
-        <div class="chapter-copy reveal">
-          <span class="chapter-kicker"><b>05</b> Library</span>
-          <h2>A watchlist you’ll actually keep.</h2>
-          <p>Save anything you want to watch later and keep your films and shows organised in one searchable place.</p>
-        </div>
-        <div class="chapter-visual device-stage reveal" data-delay="1">
-          <figure class="phone"><img src="/assets/apps/nextflick/screen-4.jpg" width="750" height="1623" loading="lazy" decoding="async" alt="My Library showing saved films and shows" /></figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="app-outro">
-      <div class="container">
-        <div class="outro-card reveal">
-          <div class="outro-get">
-            <img class="app-icon" src="/assets/apps/nextflick/icon.png" width="256" height="256" loading="lazy" alt="" />
-            <h2>Get NextFlick</h2>
-            <p>Free on the App Store and Google Play.</p>
-            <div class="store-row">
-              <a class="store-badge" href="https://apps.apple.com/app/id6759226713" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
-              <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.lazaruslabs.nextflick" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#00A0FF" d="M1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924z"/><path fill="#00D26A" d="M13.544 10.989l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973z"/><path fill="#FF3A44" d="M13.544 13.056l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/><path fill="#FFC400" d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594z"/></svg><span><small>Get it on</small><b>Google Play</b></span></a>
+            <div class="tour-item" id="library">
+              <div class="tour-copy">
+                <span class="tour-progress" aria-hidden="true"><i></i></span>
+                <button class="tour-tab" type="button" aria-expanded="false" aria-controls="library-panel">
+                  <span class="tour-kicker">05 · Library</span>
+                  <span class="tour-title">A watchlist you’ll actually keep.</span>
+                </button>
+                <div class="tour-panel" id="library-panel">
+                  <div>
+                  <p>Save anything you want to watch later and keep your films and shows organised in one searchable place.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="tour-visual lit">
+              <figure class="phone"><img src="/assets/apps/nextflick/screen-4.jpg" width="750" height="1623" loading="lazy" decoding="async" alt="My Library showing saved films and shows" /></figure>
+              </div>
             </div>
           </div>
-          <div class="outro-built">
-            <span class="eyebrow">Built by Lazarus Labs</span>
+          <div class="tour-stage lit" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ap-get" id="get">
+      <div class="container">
+        <div class="get-card lit reveal">
+          <img class="app-icon" src="/assets/apps/nextflick/icon.png" width="256" height="256" loading="lazy" alt="" />
+          <h2>Get NextFlick</h2>
+          <p>Free on the App Store and Google Play.</p>
+          <div class="store-row center">
+            <a class="store-badge" href="https://apps.apple.com/app/id6759226713" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
+            <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.lazaruslabs.nextflick" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#00A0FF" d="M1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924z"/><path fill="#00D26A" d="M13.544 10.989l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973z"/><path fill="#FF3A44" d="M13.544 13.056l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/><path fill="#FFC400" d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594z"/></svg><span><small>Get it on</small><b>Google Play</b></span></a>
+          </div>
+          <div class="get-built">
             <dl>
+              <div><dt>Built by</dt><dd>Lazarus Labs</dd></div>
               <div><dt>Platforms</dt><dd>iPhone, iPad and Android</dd></div>
               <div><dt>Built with</dt><dd>Flutter · Firebase</dd></div>
-              <div><dt>Highlights</dt><dd>An AI assistant, taste tuning and streaming availability for every title</dd></div>
             </dl>
             <a class="text-link" href="/contact">Have an app in mind? Start a project <span class="arrow">→</span></a>
           </div>
@@ -218,5 +261,6 @@
     </div>
   </footer>
   <script src="/assets/main.js"></script>
+  <script src="/assets/app-pages.js?v=1"></script>
 </body>
 </html>

@@ -29,7 +29,7 @@
 
   <link rel="icon" href="assets/lazarus-labs-icon.png" />
   <link rel="stylesheet" href="assets/styles.css" />
-  <link rel="stylesheet" href="assets/app-pages.css" />
+  <link rel="stylesheet" href="assets/app-pages.css?v=3" />
   <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
   <style>
     /* ---------- Intro ---------- */
@@ -65,14 +65,51 @@
     .work-head h2 { font-size: clamp(30px, 4.4vw, 46px); margin: 0; }
     .work-head p { max-width: 430px; margin: 0; font-size: 16px; }
 
-    /* ---------- App cards ---------- */
+    /* ---------- App cards ----------
+       Each card opens on a stage in the app's tint (--tint, set inline) holding three
+       complete, uncropped screens, with the details underneath. Phone sizes follow the
+       card's width through container query units. */
     .app-grid { display: grid; gap: 22px; grid-template-columns: 1fr; }
     @media (min-width: 760px) { .app-grid { grid-template-columns: repeat(2, 1fr); } }
-    .app-card { padding: 0; display: flex; flex-direction: column; }
-    .app-card-body { padding: 28px 28px 0; }
-    .app-card-top { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
-    .app-card-top .app-icon { width: 60px; height: 60px; flex-shrink: 0; }
-    .app-card-top h3 { font-size: 24px; margin: 0 0 3px; }
+    .app-card { padding: 0; display: flex; flex-direction: column; container-type: inline-size; }
+
+    .app-card-stage {
+      --side-w: clamp(76px, 23cqi, 136px);
+      --main-w: clamp(90px, 27.5cqi, 160px);
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+      gap: clamp(8px, 2.8cqi, 18px);
+      min-height: calc(var(--main-w) * 2.113 + 76px);
+      padding: 34px 16px 42px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(80% 70% at 50% 108%, rgba(var(--tint), 0.38), transparent 72%),
+        linear-gradient(180deg, rgba(var(--tint), 0.12) 0%, rgba(var(--tint), 0.03) 55%, transparent 100%);
+    }
+    .app-card-stage::after {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(60% 50% at 50% 0%, rgba(255,255,255,0.06), transparent 70%);
+    }
+    .app-card-stage .phone {
+      --phone-w: var(--side-w);
+      transition: transform 0.7s cubic-bezier(.16,1,.3,1), filter 0.5s ease;
+    }
+    .app-card-stage .phone.side { transform: translateY(18px); filter: brightness(0.72); }
+    .app-card-stage .phone.main { --phone-w: var(--main-w); z-index: 1; }
+    .app-card:hover .app-card-stage .phone.main { transform: translateY(-8px); }
+    .app-card:hover .app-card-stage .phone.side { transform: translateY(12px); filter: brightness(0.92); }
+    .app-card-stage .stage-icon {
+      width: clamp(104px, 30cqi, 148px); height: auto;
+      transition: transform 0.7s cubic-bezier(.16,1,.3,1);
+    }
+    .app-card:hover .app-card-stage .stage-icon { transform: translateY(-8px); }
+
+    .app-card-body { padding: 26px 28px 28px; display: flex; flex-direction: column; flex: 1; }
+    @media (max-width: 759px) { .app-card-body { padding: 22px 22px 24px; } }
+    .app-card-top { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+    .app-card-top .app-icon { width: 56px; height: 56px; flex-shrink: 0; }
+    .app-card-top h3 { font-size: 23px; margin: 0 0 3px; }
     .app-card-top .cat { font-size: 13px; color: var(--muted-2); }
     .app-card-go {
       margin-left: auto; flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%;
@@ -80,7 +117,7 @@
       transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
     }
     .app-card:hover .app-card-go { background: var(--white); color: var(--black); border-color: var(--white); }
-    .app-card .summary { font-size: 15px; margin-bottom: 18px; }
+    .app-card .summary { font-size: 15px; margin-bottom: 20px; flex: 1; }
     .avail { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; }
     .avail li {
       display: inline-flex; align-items: center; gap: 7px;
@@ -93,38 +130,22 @@
     .avail li.extra { color: var(--muted); }
     .avail li.extra::before { display: none; }
 
-    .app-card-stage { position: relative; height: 290px; margin-top: 30px; overflow: hidden; --phone-w: 248px; }
-    @media (max-width: 759px) { .app-card-body { padding: 24px 22px 0; } .app-card-stage { height: 240px; --phone-w: 220px; } }
-    .app-card-stage::before {
-      content: ""; position: absolute; left: 50%; bottom: -40%; width: 120%; aspect-ratio: 1.6; transform: translateX(-50%);
-      background: radial-gradient(closest-side, rgba(var(--tint), 0.34), rgba(var(--tint), 0.08) 60%, transparent 80%);
-      transition: opacity 0.4s ease; opacity: 0.8;
-    }
-    .app-card:hover .app-card-stage::before { opacity: 1; }
-    .app-card-stage .phone {
-      position: absolute; top: 26px; left: 50%; transform: translateX(-50%);
-      transition: transform 0.6s cubic-bezier(.16,1,.3,1);
-    }
-    .app-card:hover .app-card-stage .phone { transform: translate(-50%, -12px); }
-    .app-card-stage .app-icon {
-      position: absolute; left: 50%; top: 50%; width: 132px; height: 132px; transform: translate(-50%, -46%);
-      transition: transform 0.6s cubic-bezier(.16,1,.3,1);
-    }
-    .app-card:hover .app-card-stage .app-icon { transform: translate(-50%, -54%); }
-
     /* "Your app here" */
     .app-card.yours { border-style: dashed; --tint: 255, 255, 255; }
+    .yours .app-card-stage { background: radial-gradient(80% 70% at 50% 108%, rgba(255,255,255,0.07), transparent 72%); }
     .yours .app-card-top .ghost-icon {
-      width: 60px; height: 60px; border-radius: 22.5%; border: 1px dashed var(--line-strong);
+      width: 56px; height: 56px; border-radius: 22.5%; border: 1px dashed var(--line-strong);
       display: grid; place-items: center; font-family: var(--display); font-size: 26px; color: var(--muted); flex-shrink: 0;
     }
+    .phone.ghost { background: transparent; box-shadow: 0 0 0 1px var(--line-strong); }
+    .phone.ghost::before, .phone.ghost::after { display: none; }
     .phone.ghost .screen {
       aspect-ratio: 750 / 1630; border-radius: 12.5% / 5.75%; border: 1px dashed var(--line-strong);
-      display: flex; flex-direction: column; align-items: center; padding-top: 34%; gap: 10px;
-      font-family: var(--display); color: var(--muted-2); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+      font-family: var(--display); color: var(--muted-2); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
       background: rgba(255,255,255,0.015);
     }
-    .phone.ghost .screen b { font-size: 34px; font-weight: 400; color: var(--muted); letter-spacing: 0; }
+    .phone.ghost .screen b { font-size: 30px; font-weight: 400; color: var(--muted); letter-spacing: 0; }
 
     /* ---------- Website cards ---------- */
     .site-grid { display: grid; gap: 22px; grid-template-columns: 1fr; }
@@ -223,6 +244,11 @@
 
           <!-- AutoGarage -->
           <a class="card app-card reveal" href="/autogarage" style="--tint: 245, 176, 65;" data-delay="1">
+            <div class="app-card-stage" aria-hidden="true">
+              <div class="phone side"><img src="assets/apps/autogarage/garage.jpg" width="750" height="1630" loading="lazy" decoding="async" alt="" /></div>
+              <div class="phone main"><img src="assets/apps/autogarage/home.jpg" width="750" height="1630" loading="lazy" decoding="async" alt="" /></div>
+              <div class="phone side"><img src="assets/apps/autogarage/ai.jpg" width="750" height="1630" loading="lazy" decoding="async" alt="" /></div>
+            </div>
             <div class="app-card-body">
               <div class="app-card-top">
                 <img class="app-icon" src="assets/apps/autogarage/icon.png" width="256" height="256" alt="" />
@@ -235,13 +261,15 @@
                 <li class="soon" data-store="app-store-pending">App Store · Soon</li>
               </ul>
             </div>
-            <div class="app-card-stage" aria-hidden="true">
-              <div class="phone"><img src="assets/apps/autogarage/home.jpg" width="750" height="1630" loading="lazy" decoding="async" alt="" /></div>
-            </div>
           </a>
 
           <!-- Golf Caddie+ -->
           <a class="card app-card reveal" href="/golf-caddie-plus" style="--tint: 62, 170, 110;" data-delay="2">
+            <div class="app-card-stage" aria-hidden="true">
+              <div class="phone side"><img src="assets/apps/golf-caddie-plus/home.jpg" width="750" height="1630" loading="lazy" decoding="async" alt="" /></div>
+              <div class="phone main"><img src="assets/apps/golf-caddie-plus/hole-view.jpg" width="750" height="1630" loading="lazy" decoding="async" alt="" /></div>
+              <div class="phone side"><img src="assets/apps/golf-caddie-plus/swing-analysis.jpg" width="750" height="1630" loading="lazy" decoding="async" alt="" /></div>
+            </div>
             <div class="app-card-body">
               <div class="app-card-top">
                 <img class="app-icon" src="assets/apps/golf-caddie-plus/icon.png" width="256" height="256" alt="" />
@@ -254,13 +282,15 @@
                 <li class="soon" data-store="app-store-pending">App Store · Soon</li>
               </ul>
             </div>
-            <div class="app-card-stage" aria-hidden="true">
-              <div class="phone"><img src="assets/apps/golf-caddie-plus/hole-view.jpg" width="750" height="1630" loading="lazy" decoding="async" alt="" /></div>
-            </div>
           </a>
 
           <!-- Lock-In Trivia -->
           <a class="card app-card reveal" href="/lock-in-trivia" style="--tint: 244, 72, 59;" data-delay="1">
+            <div class="app-card-stage" aria-hidden="true">
+              <div class="phone side"><img src="assets/apps/lock-in-trivia/any-topic.jpg" width="750" height="1630" loading="lazy" decoding="async" alt="" /></div>
+              <div class="phone main"><img src="assets/apps/lock-in-trivia/home.jpg" width="750" height="1630" loading="lazy" decoding="async" alt="" /></div>
+              <div class="phone side"><img src="assets/apps/lock-in-trivia/modes.jpg" width="750" height="1630" loading="lazy" decoding="async" alt="" /></div>
+            </div>
             <div class="app-card-body">
               <div class="app-card-top">
                 <img class="app-icon" src="assets/apps/lock-in-trivia/icon.png" width="256" height="256" alt="" />
@@ -273,13 +303,15 @@
                 <li class="soon" data-store="app-store-pending">App Store · Soon</li>
               </ul>
             </div>
-            <div class="app-card-stage" aria-hidden="true">
-              <div class="phone"><img src="assets/apps/lock-in-trivia/home.jpg" width="750" height="1630" loading="lazy" decoding="async" alt="" /></div>
-            </div>
           </a>
 
           <!-- Book Club+ -->
           <a class="card app-card reveal" href="/book-club-plus" style="--tint: 200, 140, 92;" data-delay="2">
+            <div class="app-card-stage" aria-hidden="true">
+              <div class="phone side"><img src="assets/apps/book-club-plus/screen-3.jpg" width="750" height="1629" loading="lazy" decoding="async" alt="" /></div>
+              <div class="phone main"><img src="assets/apps/book-club-plus/screen-1.jpg" width="750" height="1629" loading="lazy" decoding="async" alt="" /></div>
+              <div class="phone side"><img src="assets/apps/book-club-plus/screen-6.jpg" width="750" height="1629" loading="lazy" decoding="async" alt="" /></div>
+            </div>
             <div class="app-card-body">
               <div class="app-card-top">
                 <img class="app-icon" src="assets/apps/book-club-plus/icon.png" width="256" height="256" alt="" />
@@ -292,13 +324,15 @@
                 <li class="soon" data-store="app-store-pending">App Store · Soon</li>
               </ul>
             </div>
-            <div class="app-card-stage" aria-hidden="true">
-              <div class="phone"><img src="assets/apps/book-club-plus/screen-1.jpg" width="750" height="1629" loading="lazy" decoding="async" alt="" /></div>
-            </div>
           </a>
 
           <!-- NextFlick -->
           <a class="card app-card reveal" href="/nextflick" style="--tint: 40, 170, 235;" data-delay="1">
+            <div class="app-card-stage" aria-hidden="true">
+              <div class="phone side"><img src="assets/apps/nextflick/screen-2.jpg" width="750" height="1623" loading="lazy" decoding="async" alt="" /></div>
+              <div class="phone main"><img src="assets/apps/nextflick/screen-1.jpg" width="750" height="1623" loading="lazy" decoding="async" alt="" /></div>
+              <div class="phone side"><img src="assets/apps/nextflick/screen-4.jpg" width="750" height="1623" loading="lazy" decoding="async" alt="" /></div>
+            </div>
             <div class="app-card-body">
               <div class="app-card-top">
                 <img class="app-icon" src="assets/apps/nextflick/icon.png" width="256" height="256" alt="" />
@@ -311,13 +345,15 @@
                 <li>Google Play</li>
               </ul>
             </div>
-            <div class="app-card-stage" aria-hidden="true">
-              <div class="phone"><img src="assets/apps/nextflick/screen-1.jpg" width="750" height="1623" loading="lazy" decoding="async" alt="" /></div>
-            </div>
           </a>
 
           <!-- GameArchive+ -->
           <a class="card app-card reveal" href="/gamearchive" style="--tint: 124, 112, 255;" data-delay="2">
+            <div class="app-card-stage" aria-hidden="true">
+              <div class="phone side"><img src="assets/apps/gamearchive/screen-6.jpg" width="750" height="1626" loading="lazy" decoding="async" alt="" /></div>
+              <div class="phone main"><img src="assets/apps/gamearchive/screen-1.jpg" width="750" height="1626" loading="lazy" decoding="async" alt="" /></div>
+              <div class="phone side"><img src="assets/apps/gamearchive/screen-7.jpg" width="750" height="1626" loading="lazy" decoding="async" alt="" /></div>
+            </div>
             <div class="app-card-body">
               <div class="app-card-top">
                 <img class="app-icon" src="assets/apps/gamearchive/icon.png" width="256" height="256" alt="" />
@@ -330,13 +366,14 @@
                 <li>Google Play</li>
               </ul>
             </div>
-            <div class="app-card-stage" aria-hidden="true">
-              <div class="phone"><img src="assets/apps/gamearchive/screen-1.jpg" width="750" height="1626" loading="lazy" decoding="async" alt="" /></div>
-            </div>
           </a>
 
           <!-- Petello: no screenshots yet, so the stage shows the icon -->
+          <!-- Petello -->
           <a class="card app-card reveal" href="/petello" style="--tint: 86, 176, 140;" data-delay="1">
+            <div class="app-card-stage" aria-hidden="true">
+              <img class="app-icon stage-icon" src="assets/apps/petello/icon.png" width="256" height="256" loading="lazy" alt="" />
+            </div>
             <div class="app-card-body">
               <div class="app-card-top">
                 <img class="app-icon" src="assets/apps/petello/icon.png" width="256" height="256" alt="" />
@@ -349,13 +386,15 @@
                 <li class="soon">Google Play · Soon</li>
               </ul>
             </div>
-            <div class="app-card-stage" aria-hidden="true">
-              <img class="app-icon" src="assets/apps/petello/icon.png" width="256" height="256" loading="lazy" alt="" />
-            </div>
           </a>
 
           <!-- Your app -->
           <a class="card app-card yours reveal" href="/contact.html" data-delay="2">
+            <div class="app-card-stage" aria-hidden="true">
+              <div class="phone ghost side"><div class="screen"></div></div>
+              <div class="phone ghost main"><div class="screen"><b>+</b>Your app</div></div>
+              <div class="phone ghost side"><div class="screen"></div></div>
+            </div>
             <div class="app-card-body">
               <div class="app-card-top">
                 <span class="ghost-icon" aria-hidden="true">+</span>
@@ -366,9 +405,6 @@
               <ul class="avail" aria-label="Next step">
                 <li class="extra">Start a project</li>
               </ul>
-            </div>
-            <div class="app-card-stage" aria-hidden="true">
-              <div class="phone ghost"><div class="screen"><b>+</b>Your app</div></div>
             </div>
           </a>
         </div>

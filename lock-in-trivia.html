@@ -40,188 +40,249 @@
   </script>
   <link rel="icon" href="/assets/lazarus-labs-icon.png" />
   <link rel="stylesheet" href="/assets/styles.css" />
-  <link rel="stylesheet" href="/assets/app-pages.css" />
-  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+  <link rel="stylesheet" href="/assets/app-pages.css?v=3" />
+  <noscript><style>.reveal { opacity: 1; transform: none; } .tour-panel { grid-template-rows: 1fr; }</style></noscript>
 </head>
 <body style="--tint: 244, 72, 59;">
   <canvas id="starfield"></canvas>
-  <nav class="app-nav">
-    <a class="nav-brand" href="/">
-      <img src="/assets/lazarus-labs-icon.png" alt="Lazarus Labs" />
-      <span class="brand">Lazarus Labs</span>
-    </a>
+  <nav class="app-nav product-nav">
+    <div class="product-nav-id">
+      <a class="nav-brand" href="/">
+        <img src="/assets/lazarus-labs-icon.png" alt="Lazarus Labs" />
+        <span class="brand">Lazarus Labs</span>
+      </a>
+      <span class="nav-sep" aria-hidden="true"></span>
+      <a class="nav-app" href="#top"><img src="/assets/apps/lock-in-trivia/icon.png" width="28" height="28" alt="" />Lock-In Trivia</a>
+    </div>
     <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
     <div class="nav-links">
-      <a href="/projects">Work</a>
-      <a href="/lock-in-trivia" class="active" aria-current="page">Lock-In Trivia</a>
-      <a href="/terms">Terms</a>
+      <a href="#features">Features</a>
       <a href="/support">Support</a>
+      <a href="#get" class="nav-cta">Get the app</a>
     </div>
   </nav>
 
   <main>
-    <header class="product-hero">
+    <header class="ap-hero" id="top">
       <div class="container">
-        <div class="product-hero-copy">
-          <a class="back-link" href="/projects#apps"><span aria-hidden="true">←</span> All work</a>
+        <div class="ap-hero-top"><a class="back-pill" href="/projects#apps"><span aria-hidden="true">←</span> All work</a></div>
+        <div class="ap-hero-copy">
           <img class="app-icon" src="/assets/apps/lock-in-trivia/icon.png" width="256" height="256" alt="Lock-In Trivia app icon" />
           <span class="eyebrow">An app by Lazarus Labs</span>
           <h1>Lock-In Trivia</h1>
           <p class="tagline">Trivia on anything, written on the spot.</p>
           <p class="pitch">Name any topic — Formula 1, Ancient Rome, 90s one-hit wonders — and AI writes a brand-new question pack in seconds. Play solo, chase the Daily Challenge, or go head-to-head.</p>
-          <div class="store-row">
+          <div class="store-row center">
             <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.thelazaruslabs.lockintrivia" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#00A0FF" d="M1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924z"/><path fill="#00D26A" d="M13.544 10.989l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973z"/><path fill="#FF3A44" d="M13.544 13.056l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/><path fill="#FFC400" d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594z"/></svg><span><small>Get it on</small><b>Google Play</b></span></a>
             <!-- App Store link pending Apple review. Once approved: add href="https://apps.apple.com/app/id…" target="_blank" rel="noopener", remove is-soon, aria-disabled and data-store, and change the small text to "Download on the". -->
             <a class="store-badge is-soon" aria-disabled="true" data-store="app-store-pending"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span><small>Coming soon to the</small><b>App Store</b></span></a>
           </div>
           <p class="app-meta">iPhone · Android · Free to play</p>
         </div>
-        <div class="product-hero-visual device-stage duo">
-          <figure class="phone"><img src="/assets/apps/lock-in-trivia/welcome.jpg" width="750" height="1630" fetchpriority="high" decoding="async" alt="Lock-In Trivia welcome screen: AI-written trivia on any topic you can think of" /></figure>
-          <figure class="phone"><img src="/assets/apps/lock-in-trivia/home.jpg" width="750" height="1630" fetchpriority="high" decoding="async" alt="Lock-In Trivia home screen with Solo Play, Play With Friend, Random Opponent and Daily Challenge" /></figure>
+        <div class="ap-stage lit">
+          <div class="ap-stage-devices">
+            <figure class="phone side"><img src="/assets/apps/lock-in-trivia/any-topic.jpg" width="750" height="1630" fetchpriority="high" decoding="async" alt="A custom topic, Formula 1, with Easy, Hard and Expert difficulties" /></figure>
+            <figure class="phone main"><img src="/assets/apps/lock-in-trivia/home.jpg" width="750" height="1630" fetchpriority="high" decoding="async" alt="Lock-In Trivia home screen with Solo Play, Play With Friend, Random Opponent and Daily Challenge" /></figure>
+            <figure class="phone side"><img src="/assets/apps/lock-in-trivia/modes.jpg" width="750" height="1630" fetchpriority="high" decoding="async" alt="The three game modes: Solo Run, Daily Challenge and Multiplayer" /></figure>
+          </div>
         </div>
       </div>
     </header>
 
-    <section class="chapter" id="any-topic">
+    <section class="ap-section" id="features">
       <div class="container">
-        <div class="chapter-copy reveal">
-          <span class="chapter-kicker"><b>01</b> Any topic</span>
-          <h2>You name it. The AI writes it.</h2>
-          <p>Type any subject, or pick an arena — Movies, Sports, History, Music, Science, Geography, Gaming or Pop Culture — and get a fresh pack built for that run. No two runs are ever the same.</p>
-          <ul class="ticks">
-            <li>Four difficulties, from Easy to Expert</li>
-            <li>Anywhere from 3 to 20 questions, on the timer you choose</li>
-            <li>Multiple choice, true or false, fill in the blank, short answer and matching</li>
-          </ul>
+        <div class="ap-head reveal">
+          <span class="eyebrow">Features</span>
+          <h2>Built for one more round.</h2>
         </div>
-        <div class="chapter-visual device-stage duo reveal" data-delay="1">
-          <figure class="phone"><img src="/assets/apps/lock-in-trivia/discover.jpg" width="750" height="1630" loading="lazy" decoding="async" alt="The Discover tab with a featured run, hot topics and quick warm-ups" /></figure>
-          <figure class="phone"><img src="/assets/apps/lock-in-trivia/any-topic.jpg" width="750" height="1630" loading="lazy" decoding="async" alt="A custom topic, Formula 1, with Easy, Hard and Expert difficulties" /></figure>
-        </div>
-      </div>
-    </section>
+        <div class="tour reveal">
+          <div class="tour-list">
+            <div class="tour-item is-active" id="any-topic">
+              <div class="tour-copy">
+                <span class="tour-progress" aria-hidden="true"><i></i></span>
+                <button class="tour-tab" type="button" aria-expanded="true" aria-controls="any-topic-panel">
+                  <span class="tour-kicker">01 · Any topic</span>
+                  <span class="tour-title">You name it. The AI writes it.</span>
+                </button>
+                <div class="tour-panel" id="any-topic-panel">
+                  <div>
+                  <p>Type any subject, or pick an arena — Movies, Sports, History, Music, Science, Geography, Gaming or Pop Culture — and get a fresh pack built for that run. No two runs are ever the same.</p>
+                  <ul class="ticks">
+                    <li>Four difficulties, from Easy to Expert</li>
+                    <li>Anywhere from 3 to 20 questions, on the timer you choose</li>
+                    <li>Multiple choice, true or false, fill in the blank, short answer and matching</li>
+                  </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="tour-visual lit">
+              <div class="duo">
+                <figure class="phone"><img src="/assets/apps/lock-in-trivia/discover.jpg" width="750" height="1630" loading="lazy" decoding="async" alt="The Discover tab with a featured run, hot topics and quick warm-ups" /></figure>
+                <figure class="phone"><img src="/assets/apps/lock-in-trivia/any-topic.jpg" width="750" height="1630" loading="lazy" decoding="async" alt="A custom topic, Formula 1, with Easy, Hard and Expert difficulties" /></figure>
+              </div>
+              </div>
+            </div>
 
-    <section class="chapter flip" id="modes">
-      <div class="container">
-        <div class="chapter-copy reveal">
-          <span class="chapter-kicker"><b>02</b> Three ways to play</span>
-          <h2>Solo, daily, or head-to-head.</h2>
-          <p>Every mode feeds the same progression, so every game counts.</p>
-          <ul class="ticks">
-            <li><strong>Solo Run</strong> — your topic, your pace</li>
-            <li><strong>Daily Challenge</strong> — one shared pack a day, with a leaderboard and streaks</li>
-            <li><strong>Multiplayer</strong> — 1v1 duels or rooms of up to four players</li>
-          </ul>
-        </div>
-        <div class="chapter-visual device-stage reveal" data-delay="1">
-          <figure class="phone"><img src="/assets/apps/lock-in-trivia/modes.jpg" width="750" height="1630" loading="lazy" decoding="async" alt="The three game modes: Solo Run, Daily Challenge and Multiplayer" /></figure>
-        </div>
-      </div>
-    </section>
+            <div class="tour-item" id="modes">
+              <div class="tour-copy">
+                <span class="tour-progress" aria-hidden="true"><i></i></span>
+                <button class="tour-tab" type="button" aria-expanded="false" aria-controls="modes-panel">
+                  <span class="tour-kicker">02 · Three ways to play</span>
+                  <span class="tour-title">Solo, daily, or head-to-head.</span>
+                </button>
+                <div class="tour-panel" id="modes-panel">
+                  <div>
+                  <p>Every mode feeds the same progression, so every game counts.</p>
+                  <ul class="ticks">
+                    <li><strong>Solo Run</strong> — your topic, your pace</li>
+                    <li><strong>Daily Challenge</strong> — one shared pack a day, with a leaderboard and streaks</li>
+                    <li><strong>Multiplayer</strong> — 1v1 duels or rooms of up to four players</li>
+                  </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="tour-visual lit">
+              <figure class="phone"><img src="/assets/apps/lock-in-trivia/modes.jpg" width="750" height="1630" loading="lazy" decoding="async" alt="The three game modes: Solo Run, Daily Challenge and Multiplayer" /></figure>
+              </div>
+            </div>
 
-    <section class="chapter" id="scoring">
-      <div class="container">
-        <div class="chapter-copy reveal">
-          <span class="chapter-kicker"><b>03</b> Scoring</span>
-          <h2>Beat the clock. Stack the bonus.</h2>
-          <p>Every correct answer banks 100 points — the bonuses are where runs are won.</p>
-          <ul class="ticks">
-            <li><strong>Speed</strong> — answer with time to spare</li>
-            <li><strong>Streaks</strong> — keep the right answers coming</li>
-            <li><strong>Question type</strong> — extra points for fill-ins, short answers and matching</li>
-          </ul>
-        </div>
-        <div class="chapter-visual device-stage reveal" data-delay="1">
-          <figure class="phone"><img src="/assets/apps/lock-in-trivia/scoring.jpg" width="750" height="1630" loading="lazy" decoding="async" alt="A countdown timer at 9 seconds explaining speed and streak bonuses" /></figure>
-        </div>
-      </div>
-    </section>
+            <div class="tour-item" id="scoring">
+              <div class="tour-copy">
+                <span class="tour-progress" aria-hidden="true"><i></i></span>
+                <button class="tour-tab" type="button" aria-expanded="false" aria-controls="scoring-panel">
+                  <span class="tour-kicker">03 · Scoring</span>
+                  <span class="tour-title">Beat the clock. Stack the bonus.</span>
+                </button>
+                <div class="tour-panel" id="scoring-panel">
+                  <div>
+                  <p>Every correct answer banks 100 points — the bonuses are where runs are won.</p>
+                  <ul class="ticks">
+                    <li><strong>Speed</strong> — answer with time to spare</li>
+                    <li><strong>Streaks</strong> — keep the right answers coming</li>
+                    <li><strong>Question type</strong> — extra points for fill-ins, short answers and matching</li>
+                  </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="tour-visual lit">
+              <figure class="phone"><img src="/assets/apps/lock-in-trivia/scoring.jpg" width="750" height="1630" loading="lazy" decoding="async" alt="A countdown timer at 9 seconds explaining speed and streak bonuses" /></figure>
+              </div>
+            </div>
 
-    <section class="chapter flip" id="multiplayer">
-      <div class="container">
-        <div class="chapter-copy reveal">
-          <span class="chapter-kicker"><b>04</b> Play together</span>
-          <h2>Matched on what you actually love.</h2>
-          <p>Pick the themes you enjoy and Random Opponent pairs you with live players who share at least one — or invite friends straight into a room with a six-character code.</p>
-          <ul class="ticks">
-            <li>Friend codes, friend requests and room invites</li>
-            <li>Live lobbies and a real-time scoreboard</li>
-            <li>A notification when you’re invited or a match is ready</li>
-          </ul>
-        </div>
-        <div class="chapter-visual device-stage reveal" data-delay="1">
-          <figure class="phone"><img src="/assets/apps/lock-in-trivia/matchmaking.jpg" width="750" height="1630" loading="lazy" decoding="async" alt="Choose your themes: Movies, Sports, History, Music, Science and Geography" /></figure>
-        </div>
-      </div>
-    </section>
+            <div class="tour-item" id="multiplayer">
+              <div class="tour-copy">
+                <span class="tour-progress" aria-hidden="true"><i></i></span>
+                <button class="tour-tab" type="button" aria-expanded="false" aria-controls="multiplayer-panel">
+                  <span class="tour-kicker">04 · Play together</span>
+                  <span class="tour-title">Matched on what you actually love.</span>
+                </button>
+                <div class="tour-panel" id="multiplayer-panel">
+                  <div>
+                  <p>Pick the themes you enjoy and Random Opponent pairs you with live players who share at least one — or invite friends straight into a room with a six-character code.</p>
+                  <ul class="ticks">
+                    <li>Friend codes, friend requests and room invites</li>
+                    <li>Live lobbies and a real-time scoreboard</li>
+                    <li>A notification when you’re invited or a match is ready</li>
+                  </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="tour-visual lit">
+              <figure class="phone"><img src="/assets/apps/lock-in-trivia/matchmaking.jpg" width="750" height="1630" loading="lazy" decoding="async" alt="Choose your themes: Movies, Sports, History, Music, Science and Geography" /></figure>
+              </div>
+            </div>
 
-    <section class="chapter" id="progression">
-      <div class="container">
-        <div class="chapter-copy reveal">
-          <span class="chapter-kicker"><b>05</b> Progression</span>
-          <h2>Keep what you earn.</h2>
-          <p>Every game earns XP towards your next level, and milestones unlock achievements in your vault.</p>
-          <ul class="ticks">
-            <li>Levels, player stats and your recent runs</li>
-            <li>18 achievements to unlock</li>
-            <li>Daily streaks you won’t want to break</li>
-          </ul>
-        </div>
-        <div class="chapter-visual device-stage reveal" data-delay="1">
-          <figure class="phone"><img src="/assets/apps/lock-in-trivia/profile.jpg" width="750" height="1630" loading="lazy" decoding="async" alt="Player profile with level, friend code, friends, invites and player stats" /></figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="app-section">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">Also inside</span>
-          <h2>Small touches, big replay value.</h2>
-        </div>
-        <div class="extras">
-          <div class="card reveal" data-delay="1"><div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1.1 2V17h5v-1.2c.1-.8.5-1.5 1.1-2A6 6 0 0 0 12 3z"/></svg></div><h3>Learn as you play</h3><p>Every answer comes with a short explanation, right or wrong.</p></div>
-          <div class="card reveal" data-delay="2"><div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div><h3>Play as a guest</h3><p>No sign-up to start. Link Apple or Google to keep your progress on every device.</p></div>
-          <div class="card reveal" data-delay="3"><div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div><h3>Your soundtrack</h3><p>Choose your menu and in-game music, with sound effects that make every answer land.</p></div>
-          <div class="card reveal" data-delay="4"><div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5s1.3 1.8 3.5 1.8 3.5-1.8 3.5-1.8M9 9.5h.01M15 9.5h.01"/></svg></div><h3>Pick your avatar</h3><p>Six avatars to choose from, shown on your profile and in every lobby.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="app-section" id="free">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">Free to play</span>
-          <h2>No paywalls. No catch.</h2>
-        </div>
-        <ul class="trust-list reveal">
-          <li><strong>Free to play</strong>Every mode and every topic, with no ads, subscriptions or in-app purchases.</li>
-          <li><strong>Start instantly</strong>Play as a guest straight away, and link an account only if you want to.</li>
-          <li><strong>Delete any time</strong>Remove your account and everything with it from Settings.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="app-outro">
-      <div class="container">
-        <div class="outro-card reveal">
-          <div class="outro-get">
-            <img class="app-icon" src="/assets/apps/lock-in-trivia/icon.png" width="256" height="256" loading="lazy" alt="" />
-            <h2>Get Lock-In Trivia</h2>
-            <p>Free on Google Play now, and coming soon to the App Store.</p>
-            <div class="store-row">
-              <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.thelazaruslabs.lockintrivia" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#00A0FF" d="M1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924z"/><path fill="#00D26A" d="M13.544 10.989l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973z"/><path fill="#FF3A44" d="M13.544 13.056l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/><path fill="#FFC400" d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594z"/></svg><span><small>Get it on</small><b>Google Play</b></span></a>
-              <!-- App Store link pending Apple review. Once approved: add href="https://apps.apple.com/app/id…" target="_blank" rel="noopener", remove is-soon, aria-disabled and data-store, and change the small text to "Download on the". -->
-              <a class="store-badge is-soon" aria-disabled="true" data-store="app-store-pending"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span><small>Coming soon to the</small><b>App Store</b></span></a>
+            <div class="tour-item" id="progression">
+              <div class="tour-copy">
+                <span class="tour-progress" aria-hidden="true"><i></i></span>
+                <button class="tour-tab" type="button" aria-expanded="false" aria-controls="progression-panel">
+                  <span class="tour-kicker">05 · Progression</span>
+                  <span class="tour-title">Keep what you earn.</span>
+                </button>
+                <div class="tour-panel" id="progression-panel">
+                  <div>
+                  <p>Every game earns XP towards your next level, and milestones unlock achievements in your vault.</p>
+                  <ul class="ticks">
+                    <li>Levels, player stats and your recent runs</li>
+                    <li>18 achievements to unlock</li>
+                    <li>Daily streaks you won’t want to break</li>
+                  </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="tour-visual lit">
+              <figure class="phone"><img src="/assets/apps/lock-in-trivia/profile.jpg" width="750" height="1630" loading="lazy" decoding="async" alt="Player profile with level, friend code, friends, invites and player stats" /></figure>
+              </div>
             </div>
           </div>
-          <div class="outro-built">
-            <span class="eyebrow">Built by Lazarus Labs</span>
+          <div class="tour-stage lit" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ap-section" id="details">
+      <div class="container">
+        <div class="ap-head reveal">
+          <span class="eyebrow">The details</span>
+          <h2>Small touches. Big replay value.</h2>
+        </div>
+        <div class="bento">
+          <div class="tile wide accent reveal" data-delay="1">
+            <span class="glyph"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8v13M3 12h18M12 8S10.5 3 7.5 3a2.5 2.5 0 0 0 0 5M12 8s1.5-5 4.5-5a2.5 2.5 0 0 1 0 5"/></svg></span>
+            <span class="tile-tag">Free to play</span>
+            <h3>No paywalls. No catch.</h3>
+            <p>Every mode and every topic, with no ads, subscriptions or in-app purchases.</p>
+          </div>
+          <div class="tile reveal" data-delay="2">
+            <span class="glyph"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1.1 2V17h5v-1.2c.1-.8.5-1.5 1.1-2A6 6 0 0 0 12 3z"/></svg></span>
+            <span class="tile-tag">Included</span>
+            <h3>Learn as you play</h3>
+            <p>Every answer comes with a short explanation, right or wrong.</p>
+          </div>
+          <div class="tile reveal" data-delay="3">
+            <span class="glyph"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
+            <span class="tile-tag">Included</span>
+            <h3>Play as a guest</h3>
+            <p>No sign-up to start. Link Apple or Google to keep your progress everywhere.</p>
+          </div>
+          <div class="tile reveal" data-delay="1">
+            <span class="glyph"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
+            <span class="tile-tag">Included</span>
+            <h3>Your soundtrack</h3>
+            <p>Pick your menu and in-game music, with sound effects that make every answer land.</p>
+          </div>
+          <div class="tile reveal" data-delay="2">
+            <span class="glyph"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5s1.3 1.8 3.5 1.8 3.5-1.8 3.5-1.8M9 9.5h.01M15 9.5h.01"/></svg></span>
+            <span class="tile-tag">Included</span>
+            <h3>Pick your avatar</h3>
+            <p>Six avatars, shown on your profile and in every lobby.</p>
+          </div>
+          <div class="tile wide reveal" data-delay="3">
+            <span class="glyph"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg></span>
+            <span class="tile-tag">Your account</span>
+            <h3>Delete it any time</h3>
+            <p>Remove your account and everything with it, right from Settings.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ap-get" id="get">
+      <div class="container">
+        <div class="get-card lit reveal">
+          <img class="app-icon" src="/assets/apps/lock-in-trivia/icon.png" width="256" height="256" loading="lazy" alt="" />
+          <h2>Get Lock-In Trivia</h2>
+          <p>Free on Google Play now, and coming soon to the App Store.</p>
+          <div class="store-row center">
+            <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.thelazaruslabs.lockintrivia" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#00A0FF" d="M1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924z"/><path fill="#00D26A" d="M13.544 10.989l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973z"/><path fill="#FF3A44" d="M13.544 13.056l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/><path fill="#FFC400" d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594z"/></svg><span><small>Get it on</small><b>Google Play</b></span></a>
+            <!-- App Store link pending Apple review. Once approved: add href="https://apps.apple.com/app/id…" target="_blank" rel="noopener", remove is-soon, aria-disabled and data-store, and change the small text to "Download on the". -->
+            <a class="store-badge is-soon" aria-disabled="true" data-store="app-store-pending"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span><small>Coming soon to the</small><b>App Store</b></span></a>
+          </div>
+          <div class="get-built">
             <dl>
+              <div><dt>Built by</dt><dd>Lazarus Labs</dd></div>
               <div><dt>Platforms</dt><dd>iPhone and Android</dd></div>
               <div><dt>Built with</dt><dd>Flutter · Firebase · OpenAI</dd></div>
-              <div><dt>Highlights</dt><dd>AI question packs with automatic quality checks, real-time multiplayer and matchmaking</dd></div>
             </dl>
             <a class="text-link" href="/contact">Have an app in mind? Start a project <span class="arrow">→</span></a>
           </div>
@@ -263,5 +324,6 @@
     </div>
   </footer>
   <script src="/assets/main.js"></script>
+  <script src="/assets/app-pages.js?v=1"></script>
 </body>
 </html>
